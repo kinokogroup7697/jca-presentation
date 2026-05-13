@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JCA Presentation 2026 — 木の子交通 × Kinoko Club Concierge</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+    background: #f5f2ec;
+    color: #2a2520;
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Scrollbar ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #ebe6dc; }
+  ::-webkit-scrollbar-thumb { background: #c8bda8; border-radius: 3px; }
+
+  /* ── Container ── */
+  .page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 48px 120px;
+  }
+
+  /* ── Header ── */
+  .header {
+    text-align: center;
+    padding: 80px 0 60px;
+    position: relative;
+  }
+  .header::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: #c8bda8;
+    margin: 36px auto 0;
+  }
+  .header .org {
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: #b8a590;
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+  .header h1 {
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    color: #2a2520;
+    margin-bottom: 10px;
+  }
+  .header .sub {
+    font-size: 13px;
+    letter-spacing: 6px;
+    color: #8a7a6a;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-weight: 300;
+  }
+
+  /* ── Part Separator ── */
+  .part-divider {
+    text-align: center;
+    padding: 60px 0 40px;
+    position: relative;
+  }
+  .part-divider .line {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #c8bda8 20%, #c8bda8 80%, transparent);
+    margin-bottom: 28px;
+  }
+  .part-divider .part-num {
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: 13px;
+    letter-spacing: 6px;
+    color: #b8a590;
+    font-weight: 300;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .part-divider h2 {
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    color: #2a2520;
+  }
+  .part-divider .part-sub {
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #8a7a6a;
+    margin-top: 6px;
+  }
+
+  /* ── Section ── */
+  .section {
+    padding: 40px 0;
+    position: relative;
+  }
+  .section + .section {
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .section-title .num {
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: #c0b0a0;
+    font-weight: 300;
+  }
+  .section-title h3 {
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: #2a2520;
+  }
+
+  /* ── Bullet List ── */
+  .bullet-list {
+    list-style: none;
+    padding: 0;
+  }
+  .bullet-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: #4a4038;
+  }
+  .bullet-list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: #c8bda8;
+  }
+
+  /* ── Highlight Box ── */
+  .highlight-box {
+    background: rgba(184,149,90,0.06);
+    border-left: 2px solid #b8945a;
+    padding: 20px 24px;
+    margin: 20px 0;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #5a4a3a;
+    line-height: 1.8;
+  }
+
+  /* ── Vehicle Cards Grid ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 768px) {
+    .card-grid { grid-template-columns: repeat(2, 1fr); }
+    .card-grid-2 { grid-template-columns: repeat(2, 1fr) !important; }
+    .card-grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+    .page { padding: 0 20px 80px; }
+  }
+  @media (max-width: 520px) {
+    .card-grid, .card-grid-2, .card-grid-4 { grid-template-columns: 1fr !important; }
+  }
+
+  .vehicle-card {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.06);
+    padding: 0;
+    overflow: hidden;
+  }
+  .vehicle-card .photo-area {
+    height: 480px;
+    overflow: hidden;
+    background: #e8e2d6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .vehicle-card .photo-area img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .vehicle-card .photo-placeholder {
+    background: #e8e2d6;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #b8a590;
+  }
+  .vehicle-card .info {
+    padding: 16px 18px;
+  }
+  .vehicle-card .name {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #2a2520;
+    margin-bottom: 10px;
+  }
+  .vehicle-card .specs {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .vehicle-card .spec {
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #8a7a6a;
+  }
+  .vehicle-card .spec span {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #c0b0a0;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  /* ── Icon Cards Grid ── */
+  .card-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .card-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .icon-card {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.06);
+    padding: 24px 16px;
+    text-align: center;
+  }
+  .icon-card .icon-placeholder {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: #ebe6dc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: #b8a590;
+  }
+  .icon-card .label {
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #4a4038;
+  }
+
+  /* ── Paid Option Cards ── */
+  .paid-section {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(0,0,0,0.08);
+  }
+  .paid-section .label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #b8a590;
+    margin-bottom: 12px;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+  }
+
+  /* ── SDGs ── */
+  .sdgs-note {
+    margin-top: 24px;
+    padding: 16px 20px;
+    background: rgba(120,160,100,0.06);
+    border: 1px solid rgba(120,160,100,0.15);
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #6a7a5a;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .sdgs-note .sdgs-icon {
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  /* ── Stat Row ── */
+  .stat-row {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+  .stat-item {
+    text-align: center;
+    min-width: 100px;
+  }
+  .stat-item .big {
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: #b8945a;
+  }
+  .stat-item .desc {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #8a7a6a;
+    margin-top: 4px;
+  }
+
+  /* ── Day Card (Itinerary) ── */
+  .day-card {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .day-card .day-header {
+    padding: 18px 24px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    background: #faf8f5;
+  }
+  .day-card .day-header .day-num {
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: #b8945a;
+    font-weight: 300;
+  }
+  .day-card .day-header .day-route {
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #2a2520;
+  }
+  .day-card .day-body {
+    padding: 20px 24px;
+  }
+  .day-card .day-body .spot {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #4a4038;
+    line-height: 1.8;
+  }
+  .day-card .day-body .spot::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: #c8bda8;
+  }
+  .day-card .day-body .spot .tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #b8945a;
+    border: 1px solid rgba(184,149,90,0.3);
+    padding: 1px 8px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .day-card .day-body .hotel {
+    color: #b8945a;
+    font-size: 13px;
+    letter-spacing: 2px;
+    padding-left: 18px;
+    position: relative;
+    margin-top: 4px;
+  }
+  .day-card .day-body .hotel::before {
+    content: "◇";
+    position: absolute;
+    left: 0;
+    font-size: 10px;
+    color: #c8bda8;
+    top: 3px;
+  }
+
+  /* ── Day Card Carousel ── */
+  .day-card .carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: #ebe6dc;
+  }
+  .day-card .carousel .slides {
+    display: flex;
+    transition: transform 0.4s ease;
+    will-change: transform;
+  }
+  .day-card .carousel .slide {
+    min-width: 100%;
+    position: relative;
+  }
+  .day-card .carousel .slide img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 675 / 380;
+    object-fit: cover;
+    display: block;
+  }
+  .day-card .carousel .slide .placeholder {
+    width: 100%;
+    aspect-ratio: 675 / 380;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ebe6dc;
+    color: #b8a590;
+    font-size: 13px;
+    letter-spacing: 3px;
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+  }
+  .day-card .carousel .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.85);
+    border: 1px solid rgba(0,0,0,0.08);
+    color: #5a5040;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, color 0.3s;
+    user-select: none;
+  }
+  .day-card .carousel .arrow:hover {
+    background: #fff;
+    color: #b8945a;
+  }
+  .day-card .carousel .arrow--prev { left: 12px; }
+  .day-card .carousel .arrow--next { right: 12px; }
+  .day-card .carousel .dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+  }
+  .day-card .carousel .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    border: 1px solid rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .day-card .carousel .dot.active {
+    background: #b8945a;
+    border-color: #b8945a;
+  }
+  .day-card .carousel .counter {
+    position: absolute;
+    bottom: 12px;
+    right: 16px;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.85);
+    background: rgba(0,0,0,0.3);
+    padding: 2px 8px;
+    border-radius: 10px;
+    z-index: 2;
+  }
+
+  /* Spot carousels (per-spot) */
+  .day-photos {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 24px 24px;
+  }
+  .spot-carousel {
+    width: 100%;
+    max-width: 100%;
+  }
+  .spot-carousel .spot-label {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #b8945a;
+    margin-bottom: 8px;
+    padding-left: 2px;
+  }
+  .spot-carousel .carousel {
+    border-radius: 2px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  }
+
+  /* ── Fleet Section Banner ── */
+  .fleet-banner {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.06);
+    padding: 32px 32px 28px;
+    margin: 24px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .fleet-banner::before {
+    content: "FLEET";
+    position: absolute;
+    right: 24px;
+    top: 16px;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: 8px;
+    color: rgba(184,149,90,0.06);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .fleet-banner .fleet-title {
+    font-size: 13px;
+    letter-spacing: 5px;
+    color: #b8a590;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-weight: 300;
+    margin-bottom: 6px;
+  }
+  .fleet-banner .fleet-heading {
+    font-size: 20px;
+    letter-spacing: 3px;
+    color: #2a2520;
+    margin-bottom: 20px;
+  }
+
+  /* ── Driver Stats ── */
+  .driver-grid {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+  .driver-stat {
+    flex: 1;
+    min-width: 140px;
+    text-align: center;
+    padding: 24px 16px;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .driver-stat .num {
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: 36px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: #b8945a;
+  }
+  .driver-stat .label {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #8a7a6a;
+    margin-top: 6px;
+  }
+
+  /* ── Office Card ── */
+  .office-card {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.06);
+    padding: 24px;
+    margin: 20px 0;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .office-card .map-placeholder {
+    width: 200px;
+    height: 140px;
+    background: #ebe6dc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #b8a590;
+    flex-shrink: 0;
+  }
+  .office-card .office-info {
+    flex: 1;
+    min-width: 200px;
+  }
+  .office-card .office-name {
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #2a2520;
+    margin-bottom: 8px;
+  }
+  .office-card .office-addr {
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: #6a5a4a;
+    margin-bottom: 12px;
+  }
+  .office-card .office-detail {
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: #8a7a6a;
+    line-height: 1.8;
+  }
+
+  /* ── K-Link screenshots ── */
+  .klink-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+  .klink-screenshot {
+    flex: 1;
+    min-width: 200px;
+    height: 300px;
+    background: #d8dce6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #7a8aaa;
+  }
+  .klink-screenshot .device-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #9aaaba;
+  }
+
+  /* ── Team Grid ── */
+  .team-grid {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+  .team-chip {
+    padding: 8px 18px;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.06);
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #4a4038;
+  }
+
+  /* ── Client logos ── */
+  .client-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 16px 0;
+  }
+  .client-chip {
+    padding: 12px 20px;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.06);
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #4a4038;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    padding: 60px 0 40px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    margin-top: 40px;
+  }
+  .footer .contact {
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #6a5a4a;
+    margin-bottom: 6px;
+  }
+  .footer .web {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #b8945a;
+    margin-bottom: 20px;
+  }
+  .footer .social-icons {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+  }
+  .footer .social-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: #b8a590;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .footer .social-icon:hover {
+    border-color: #b8945a;
+    color: #b8945a;
+  }
+
+  /* ── Japanese Divider ── */
+  .jp-divider {
+    text-align: center;
+    padding: 0;
+    margin: 16px 0;
+    font-size: 18px;
+    letter-spacing: 8px;
+    color: #c8bda8;
+  }
+
+  /* ── Inline tag ── */
+  .inline-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #b8945a;
+    border: 1px solid rgba(184,149,90,0.3);
+    padding: 2px 10px;
+    margin: 0 2px;
+    vertical-align: middle;
+  }
+
+  /* ── Page divider ornament ── */
+  .ornament {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    letter-spacing: 12px;
+    color: #d0c8b8;
+  }
+
+  /* ── Day 9 minimal card ── */
+  .day-card.day-minimal .day-body {
+    padding: 24px 24px 28px;
+  }
+  .day-card.day-minimal .day-body .note {
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #8a7a6a;
+    margin-top: 14px;
+    font-style: italic;
+  }
+
+  /* ── Subtle animation ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .section {
+    animation: fadeUp 0.6s ease-out both;
+  }
+
+  /* ── Mobile Responsive (375px–480px) ── */
+  @media (max-width: 480px) {
+    /* General */
+    .page {
+      padding: 0 16px 60px;
+    }
+    .header {
+      padding: 48px 0 36px;
+    }
+    .header h1 {
+      font-size: 24px;
+      letter-spacing: 2px;
+    }
+    .header .org {
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+    .part-divider {
+      padding: 40px 0 28px;
+    }
+    .part-divider h2 {
+      font-size: 22px;
+      letter-spacing: 2px;
+    }
+    .section-title .num {
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+    .section-title h3 {
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+
+    /* Vehicle cards — photo area height */
+    .vehicle-card .photo-area {
+      height: 300px;
+    }
+
+    /* Section 03: Amenities — タオル+ギフト 2-col stays but smaller */
+    .section [style*="grid-template-columns:repeat(2,1fr)"] {
+      gap: 16px !important;
+    }
+    .section [style*="grid-template-columns:repeat(2,1fr)"] img {
+      height: 200px !important;
+    }
+    /* Amenities 3-column → 2-column */
+    .section [style*="grid-template-columns:repeat(3,1fr)"] {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 16px !important;
+    }
+    .section [style*="grid-template-columns:repeat(3,1fr)"] img {
+      width: 120px !important;
+      height: 120px !important;
+    }
+
+    /* Section 04: Driver cards — stack vertically */
+    .driver-section .d-card .d-title {
+      font-size: 1.5rem;
+    }
+    .driver-section .d-card [style*="display:flex;justify-content:center;align-items:center"] {
+      flex-direction: column !important;
+      align-items: center !important;
+    }
+    /* Driver photos — keep horizontal but shrink */
+    .driver-section .d-card [style*="display:flex;align-items:center;gap:12px"] img {
+      width: 140px !important;
+      height: 210px !important;
+    }
+    .driver-section .d-card [style*="display:flex;align-items:center;gap:12px"] [style*="position:absolute"] {
+      top: -4px !important;
+      left: -4px !important;
+      right: -4px !important;
+      bottom: -4px !important;
+    }
+    /* Driver text area — center below photos */
+    .driver-section .d-card [style*="text-align:left;margin-left:60px"] {
+      margin-left: 0 !important;
+      margin-top: 20px !important;
+      text-align: center !important;
+      max-width: 100% !important;
+    }
+
+    /* Section 05: LINE share photos */
+    .section [style*="display:flex;gap:16px;justify-content:center"] img {
+      width: 200px !important;
+      height: auto !important;
+    }
+
+    /* Section 06: K-Link — stack vertically */
+    .section [style*="display:flex;align-items:center;justify-content:center;gap:36px"] {
+      flex-direction: column !important;
+      gap: 24px !important;
+    }
+    .section [style*="display:flex;align-items:center;justify-content:center;gap:36px"] [style*="min-width:280px;max-width:360px"] {
+      min-width: unset !important;
+      max-width: 100% !important;
+      width: 100% !important;
+    }
+    .section [style*="display:flex;align-items:center;justify-content:center;gap:36px"] img {
+      width: 220px !important;
+    }
+
+    /* Footer/closing section */
+    [style*="padding:80px 32px"] {
+      padding: 48px 16px !important;
+    }
+    [style*="font-size:1.6rem"] {
+      font-size: 1.2rem !important;
+    }
+    [style*="font-size:1.1rem"][style*="italic"] {
+      font-size: 0.95rem !important;
+    }
+
+    /* Highlight box */
+    .highlight-box {
+      padding: 16px 18px;
+      font-size: 13px;
+    }
+
+    /* Stat row */
+    .stat-row {
+      gap: 16px;
+    }
+    .stat-item .big {
+      font-size: 26px;
+    }
+
+    /* Office card */
+    .office-card {
+      flex-direction: column;
+    }
+    .office-card .map-placeholder {
+      width: 100%;
+    }
+
+    /* Fleet banner */
+    .fleet-banner {
+      padding: 24px 20px;
+    }
+
+    /* Icon card grids */
+    .card-grid-4 {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+    .card-grid-2 {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* Driver grid */
+    .driver-grid {
+      gap: 12px;
+    }
+    .driver-stat {
+      min-width: 100px;
+      padding: 16px 12px;
+    }
+    .driver-stat .num {
+      font-size: 28px;
+    }
+
+    /* Section 01 photos */
+    .section [style*="display:flex;gap:16px;flex-wrap:wrap;margin-top:20px"] {
+      flex-direction: column !important;
+    }
+    .section [style*="display:flex;gap:16px;flex-wrap:wrap;margin-top:20px"] > div {
+      min-width: unset !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<!-- ════════════════ HEADER ════════════════ -->
+<header class="header">
+  <div class="org">木の子交通株式会社 × Kinoko Club Concierge</div>
+  <h1>JCA Presentation 2026</h1>
+  <div class="sub">May 20, 2026</div>
+</header>
+
+<!-- ════════════════ PART 1 ════════════════ -->
+<div class="part-divider">
+  <span class="line"></span>
+  <span class="part-num">PART 1</span>
+  <h2>ハイヤー事業</h2>
+  <div class="part-sub">木の子交通株式会社</div>
+</div>
+
+<!-- Section 1: 羽田空港から10分 -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">01</span>
+    <h3>羽田空港から10分</h3>
+  </div>
+  <ul class="bullet-list">
+    <li>本社：東京都大田区羽田五丁目3番1号</li>
+    <li>車庫が羽田空港より車で約10分</li>
+    <li>フライト変更や到着遅延に柔軟対応</li>
+  </ul>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:20px;">
+    <div style="flex:1;min-width:280px;overflow:hidden;border:1px solid rgba(0,0,0,0.06);">
+      <img src="photos/本社ビル外観.png" alt="本社ビル" style="width:100%;height:240px;object-fit:cover;display:block;">
+    </div>
+    <div style="flex:1;min-width:280px;overflow:hidden;border:1px solid rgba(0,0,0,0.06);">
+      <img src="photos/車庫.png" alt="車庫" style="width:100%;height:240px;object-fit:cover;display:block;">
+    </div>
+  </div>
+</div>
+
+
+<!-- Section 3: 車種ラインナップ -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">02</span>
+    <h3>車種ラインナップ</h3>
+  </div>
+  <div class="card-grid">
+
+
+
+    <div class="vehicle-card">
+      <div class="photo-area">
+        <img src="vehicle_photos/benz-vluxury-torii.jpg" alt="BENZ V LUXURY">
+      </div>
+      <div class="info">
+        <div class="name">BENZ V LUXURY</div>
+        <div class="specs">
+          <div class="spec"><span>定員</span>7名</div>
+          <div class="spec"><span>推奨</span>5名</div>
+          <div class="spec"><span>スーツケース</span>6個</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <div class="photo-area">
+        <img src="vehicle_photos/alphard-torii.jpg" alt="ALPHARD">
+      </div>
+      <div class="info">
+        <div class="name">ALPHARD</div>
+        <div class="specs">
+          <div class="spec"><span>定員</span>7名</div>
+          <div class="spec"><span>推奨</span>4名</div>
+          <div class="spec"><span>スーツケース</span>4個</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <div class="photo-area">
+        <img src="vehicle_photos/hiace-torii.jpg" alt="TOYOTA HIACE">
+      </div>
+      <div class="info">
+        <div class="name">TOYOTA HIACE</div>
+        <div class="specs">
+          <div class="spec"><span>定員</span>10名</div>
+          <div class="spec"><span>推奨</span>8名</div>
+          <div class="spec"><span>スーツケース</span>10個</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <div class="photo-area">
+        <img src="vehicle_photos/granace-torii.jpg" alt="GRANACE">
+      </div>
+      <div class="info">
+        <div class="name">GRANACE</div>
+        <div class="specs">
+          <div class="spec"><span>定員</span>6名</div>
+          <div class="spec"><span>推奨</span>4名</div>
+          <div class="spec"><span>スーツケース</span>4個</div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <div class="highlight-box" style="margin-top:24px;">
+    <strong>オリジナル「おまかせプラン」</strong><br>
+    人数や用途に応じて最適な車種を同一料金で提供<br>
+    深夜・早朝の追加料金なし<br>
+    高速料金・消費税・回送料すべて込み
+  </div>
+
+</div>
+
+<!-- Section 4: オプションサービス -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">03</span>
+    <h3>オプションサービス</h3>
+  </div>
+
+  <!-- タオル & ギフトボックス（大・2列・実写） -->
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-bottom:36px;">
+    <div style="text-align:center;">
+      <img src="photos/タオル実写.png" alt="タオル" style="width:100%;height:280px;object-fit:cover;border-radius:8px;">
+      <div style="font-size:1rem;margin-top:12px;font-weight:500;">タオルサービス</div>
+    </div>
+    <div style="text-align:center;">
+      <img src="photos/ギフトボックス実写.png" alt="ギフトボックス" style="width:100%;height:280px;object-fit:cover;border-radius:8px;">
+      <div style="font-size:1rem;margin-top:12px;font-weight:500;">ギフトボックス</div>
+      <div style="font-size:0.85rem;color:#b8945a;">¥6,500～</div>
+    </div>
+  </div>
+
+  <!-- 残り6個（3列・大きめ） -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+    <div style="text-align:center;">
+      <img src="photos/img-amenities-02.png" alt="ミネラルウォーター" style="width:160px;height:160px;object-fit:contain;">
+      <div style="font-size:0.9rem;margin-top:10px;">紙ミネラルウォーター</div>
+    </div>
+    <div style="text-align:center;">
+      <img src="photos/img-amenities-04.png" alt="ミニ冷蔵庫" style="width:160px;height:160px;object-fit:contain;">
+      <div style="font-size:0.9rem;margin-top:10px;">ミニ冷蔵庫</div>
+    </div>
+    <div style="text-align:center;">
+      <img src="photos/img-amenities-05.png" alt="チャイルドシート" style="width:160px;height:160px;object-fit:contain;">
+      <div style="font-size:0.9rem;margin-top:10px;">チャイルドシート</div>
+    </div>
+    <div style="text-align:center;">
+      <img src="photos/img-amenities-06.png" alt="踏み台" style="width:160px;height:160px;object-fit:contain;">
+      <div style="font-size:0.9rem;margin-top:10px;">踏み台</div>
+    </div>
+    <div style="text-align:center;">
+      <img src="photos/img-amenities-08.png" alt="車椅子" style="width:160px;height:160px;object-fit:contain;">
+      <div style="font-size:0.9rem;margin-top:10px;">車椅子</div>
+      <div style="font-size:0.8rem;color:#b8945a;">¥3,300～</div>
+    </div>
+    <div style="text-align:center;">
+      <img src="photos/img-amenities-09.png" alt="ポケットWiFi" style="width:160px;height:160px;object-fit:contain;">
+      <div style="font-size:0.9rem;margin-top:10px;">ポケットWiFi</div>
+      <div style="font-size:0.8rem;color:#b8945a;">¥1,100～/日</div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 4: 私たちのドライバー -->
+<style>
+  .driver-section .d-card {
+    text-align: center;
+    padding: 40px 0;
+    border-bottom: 1px solid #e8e4df;
+  }
+  .driver-section .d-card:last-child {
+    border-bottom: none;
+  }
+  .driver-section .d-card .d-title {
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 16px;
+    color: #1a1a1a;
+  }
+  .driver-section .d-card .d-info {
+    margin-top: 20px;
+  }
+  .driver-section .d-card .d-info .d-name {
+    font-weight: 700;
+    font-size: 1.6rem;
+  }
+  .driver-section .d-card .d-info .d-quote {
+    font-size: 1.05rem;
+    color: #555;
+    font-style: italic;
+  }
+</style>
+<div class="section">
+  <div class="section-title">
+    <span class="num">04</span>
+    <h3>私たちのドライバー</h3>
+  </div>
+  <div class="driver-section">
+
+      <div class="d-card">
+        <div class="d-title">元・俳優ドライバー</div>
+        <!-- Before → After + 右側テキスト -->
+        <div style="display:flex;justify-content:center;align-items:center;gap:0;flex-wrap:wrap;">
+          <!-- 写真エリア -->
+          <div style="display:flex;align-items:center;gap:12px;flex-shrink:0;">
+            <div style="text-align:center;">
+              <img src="photos/driver-yamamoto-before.png" alt="Before" style="width:200px;height:300px;object-fit:cover;border-radius:8px;">
+              <div style="font-size:0.85rem;font-weight:600;color:#999;margin-top:6px;">BEFORE</div>
+            </div>
+            <div style="font-size:1.8rem;color:#b8945a;">→</div>
+            <div style="text-align:center;position:relative;">
+              <div style="position:absolute;top:-6px;left:-6px;right:-6px;bottom:-6px;border-radius:10px;background:linear-gradient(135deg,#f5e6c8,#b8945a,#f5e6c8,#b8945a);background-size:300% 300%;animation:shimmer 2s ease infinite;box-shadow:0 0 20px rgba(184,148,90,0.5),0 0 50px rgba(184,148,90,0.2);z-index:0;"></div>
+              <style>@keyframes shimmer{0%{background-position:0% 50%;box-shadow:0 0 20px rgba(184,148,90,0.5),0 0 50px rgba(184,148,90,0.2)}50%{background-position:100% 50%;box-shadow:0 0 40px rgba(184,148,90,0.8),0 0 80px rgba(255,215,0,0.4)}100%{background-position:0% 50%;box-shadow:0 0 20px rgba(184,148,90,0.5),0 0 50px rgba(184,148,90,0.2)}}@keyframes glow-pulse{0%{filter:brightness(1.15) contrast(1.05);box-shadow:0 0 30px rgba(255,255,255,0.6),0 0 60px rgba(184,148,90,0.3)}50%{filter:brightness(1.25) contrast(1.08);box-shadow:0 0 50px rgba(255,255,255,0.8),0 0 100px rgba(255,215,0,0.5)}100%{filter:brightness(1.15) contrast(1.05);box-shadow:0 0 30px rgba(255,255,255,0.6),0 0 60px rgba(184,148,90,0.3)}}</style>
+              <img src="photos/driver-yamamoto-after.png" alt="After" style="width:200px;height:300px;object-fit:cover;border-radius:8px;position:relative;z-index:1;filter:brightness(1.2) contrast(1.05);box-shadow:0 0 40px rgba(255,255,255,0.8),0 0 80px rgba(255,215,0,0.4);animation:glow-pulse 1.5s ease infinite;">
+              <div style="font-size:0.85rem;font-weight:600;color:#b8945a;margin-top:6px;">AFTER</div>
+            </div>
+          </div>
+          <!-- テキストエリア -->
+          <div style="text-align:left;margin-left:60px;max-width:300px;">
+            <div style="font-weight:700;font-size:1.3rem;margin-bottom:12px;">山本 真敬｜41歳｜大阪出身</div>
+            <div style="font-size:0.88rem;color:#333;line-height:1.8;">
+              <div style="margin-bottom:8px;"><strong>お客様によく言われる事</strong><br>「運転が上手い」<br>「落ち着いている」</div>
+              <div style="margin-bottom:8px;"><strong>この仕事で好きな瞬間</strong><br>「ありがとう」と笑顔で握手される時<br>「日本は最高にいい国」と言ってもらえる時</div>
+              <div><strong>東京の好きな場所</strong><br>東京タワー・銀座・二子玉川・豊洲</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="d-card">
+        <div class="d-title">元・船舶操縦士ドライバー</div>
+        <div style="display:flex;justify-content:center;align-items:center;gap:0;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:12px;flex-shrink:0;">
+            <div style="text-align:center;">
+              <img src="photos/driver-ship.jpg" alt="Before" style="width:200px;height:300px;object-fit:cover;border-radius:8px;">
+              <div style="font-size:0.85rem;font-weight:600;color:#999;margin-top:6px;">BEFORE</div>
+            </div>
+            <div style="font-size:1.8rem;color:#b8945a;">→</div>
+            <div style="text-align:center;position:relative;">
+              <div style="position:absolute;top:-6px;left:-6px;right:-6px;bottom:-6px;border-radius:10px;background:linear-gradient(135deg,#f5e6c8,#b8945a,#f5e6c8,#b8945a);background-size:300% 300%;animation:shimmer 2s ease infinite;box-shadow:0 0 20px rgba(184,148,90,0.5),0 0 50px rgba(184,148,90,0.2);z-index:0;"></div>
+              <img src="photos/driver-ship.jpg" alt="After" style="width:200px;height:300px;object-fit:cover;border-radius:8px;position:relative;z-index:1;filter:brightness(1.2) contrast(1.05);box-shadow:0 0 40px rgba(255,255,255,0.8),0 0 80px rgba(255,215,0,0.4);animation:glow-pulse 1.5s ease infinite;">
+              <div style="font-size:0.85rem;font-weight:600;color:#b8945a;margin-top:6px;">AFTER</div>
+            </div>
+          </div>
+          <div style="text-align:left;margin-left:60px;max-width:300px;">
+            <div style="font-weight:700;font-size:1.3rem;margin-bottom:12px;">楠田 恭子｜30歳｜佐賀県出身 <span style="display:inline-block;background:#b8945a;color:#fff;font-size:0.7rem;padding:2px 8px;border-radius:4px;margin-left:6px;vertical-align:middle;">English</span></div>
+            <div style="font-size:0.88rem;color:#333;line-height:1.8;">
+              <div style="margin-bottom:8px;"><strong>お客様によく言われること</strong><br>「英語が上手ね〜」<br>「運転がうまいね！」</div>
+              <div style="margin-bottom:8px;"><strong>この仕事で好きな瞬間</strong><br>お客様から「ありがとう」と握手して下さったとき<br>お客様が笑顔で車を降りられたとき</div>
+              <div><strong>東京の好きな場所</strong><br>レインボーブリッジ（橋から見える海の景色）</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-card">
+        <div class="d-title">元アパレル店員ドライバー</div>
+        <div style="display:flex;justify-content:center;align-items:center;gap:0;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:12px;flex-shrink:0;">
+            <div style="text-align:center;">
+              <img src="photos/driver-fujino.jpg" alt="Before" style="width:200px;height:300px;object-fit:cover;border-radius:8px;">
+              <div style="font-size:0.85rem;font-weight:600;color:#999;margin-top:6px;">BEFORE</div>
+            </div>
+            <div style="font-size:1.8rem;color:#b8945a;">→</div>
+            <div style="text-align:center;position:relative;">
+              <div style="position:absolute;top:-6px;left:-6px;right:-6px;bottom:-6px;border-radius:10px;background:linear-gradient(135deg,#f5e6c8,#b8945a,#f5e6c8,#b8945a);background-size:300% 300%;animation:shimmer 2s ease infinite;box-shadow:0 0 20px rgba(184,148,90,0.5),0 0 50px rgba(184,148,90,0.2);z-index:0;"></div>
+              <img src="photos/driver-fujino.jpg" alt="After" style="width:200px;height:300px;object-fit:cover;border-radius:8px;position:relative;z-index:1;filter:brightness(1.2) contrast(1.05);box-shadow:0 0 40px rgba(255,255,255,0.8),0 0 80px rgba(255,215,0,0.4);animation:glow-pulse 1.5s ease infinite;">
+              <div style="font-size:0.85rem;font-weight:600;color:#b8945a;margin-top:6px;">AFTER</div>
+            </div>
+          </div>
+          <div style="text-align:left;margin-left:60px;max-width:300px;">
+            <div style="font-weight:700;font-size:1.3rem;margin-bottom:12px;">藤野 浩幹｜29歳｜埼玉出身 <span style="display:inline-block;background:#b8945a;color:#fff;font-size:0.7rem;padding:2px 8px;border-radius:4px;margin-left:6px;vertical-align:middle;">English</span></div>
+            <div style="font-size:0.88rem;color:#333;line-height:1.8;">
+              <div style="margin-bottom:8px;"><strong>お客様によく言われる事</strong><br>「運転が上手い」「紳士的で親切だった」<br>「英語を話せて助かった」「車内が綺麗でリラックスできた」</div>
+              <div style="margin-bottom:8px;"><strong>この仕事で好きな瞬間</strong><br>「また東京に来たら運転して欲しい」と言われた時<br>初めての場所でお客様と一緒に感動できた時<br>自分の語学力や気遣いを褒められた時</div>
+              <div><strong>東京の好きな場所</strong><br>渋谷・原宿——洋服や食べ物の最先端が集まる街</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+<!-- Section 5: 研修と共有 -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">05</span>
+    <h3>研修と共有</h3>
+  </div>
+  <p style="font-size:1.1rem;color:#333;margin-bottom:24px;">ホテルコンシェルジュからサービス研修</p>
+  <div style="text-align:center;margin-bottom:40px;">
+    <img src="photos/kenshu.jpg" alt="研修写真" style="width:100%;max-width:600px;height:400px;object-fit:cover;border-radius:12px;">
+  </div>
+
+  <div style="margin-top:32px;border-top:1px solid #e8e4df;padding-top:32px;">
+    <h4 style="font-size:1.2rem;color:#1a1a1a;margin-bottom:8px;">KINOKO LINE発信の Best Award 2026</h4>
+    <p style="font-size:0.95rem;color:#555;margin-bottom:20px;">社内でドライバーが外部の有用情報を共有する制度</p>
+    <div style="display:flex;gap:16px;justify-content:center;">
+      <img src="photos/line-share-1.jpg" alt="LINE共有例" style="width:280px;height:500px;object-fit:cover;border-radius:12px;">
+      <img src="photos/line-share-2.jpg" alt="LINE共有例" style="width:280px;height:500px;object-fit:cover;border-radius:12px;">
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Section 6: K-Link -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">06</span>
+    <h3>K-Link 自社配車システム</h3>
+  </div>
+  <p style="font-size:1.1rem;color:#333;margin-top:16px;">ドライバーがスマホで「出発」「終了」をタップ → 乗車・降車報告が自動でコンシェルジュへ通知</p>
+  <div style="display:flex;align-items:stretch;justify-content:center;gap:36px;margin-top:32px;flex-wrap:wrap;">
+    <!-- 左: 構成図 -->
+    <div style="min-width:280px;max-width:360px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:space-between;height:100%;">
+        <div style="background:#f5f2ec;border:2px solid #b8945a;border-radius:10px;padding:20px 24px;text-align:center;width:100%;">
+          <div style="font-weight:700;font-size:1.1rem;">🏢 オフィス</div>
+          <div style="font-size:0.85rem;color:#555;margin-top:6px;">予約入力・配車・変更</div>
+        </div>
+        <div style="font-size:1.5rem;color:#b8945a;padding:8px 0;">↓</div>
+        <div style="background:#b8945a;color:#fff;border-radius:10px;padding:24px 24px;text-align:center;width:100%;">
+          <div style="font-weight:700;font-size:1.4rem;">K-Link</div>
+          <div style="font-size:0.85rem;margin-top:6px;">リアルタイム同期</div>
+        </div>
+        <div style="font-size:1.5rem;color:#b8945a;padding:8px 0;">↓</div>
+        <div style="background:#f5f2ec;border:2px solid #b8945a;border-radius:10px;padding:20px 24px;text-align:center;width:100%;">
+          <div style="font-weight:700;font-size:1.1rem;">🚗 ドライバー</div>
+          <div style="font-size:0.85rem;color:#555;margin-top:6px;">「開始」「終了」タップ</div>
+        </div>
+        <div style="font-size:1.5rem;color:#b8945a;padding:8px 0;">↓</div>
+        <div style="background:#1a1a1a;color:#fff;border-radius:10px;padding:20px 24px;text-align:center;width:100%;">
+          <div style="font-weight:700;font-size:1.1rem;">✉️ コンシェルジュ</div>
+          <div style="font-size:0.85rem;color:#ccc;margin-top:6px;">乗車・降車報告を自動通知</div>
+        </div>
+      </div>
+    </div>
+    <!-- 右: 自動通知メール -->
+    <div style="flex-shrink:0;display:flex;flex-direction:column;gap:16px;align-items:center;">
+      <img src="photos/klink-email-pickup.png" alt="乗車通知" style="width:280px;border-radius:12px;box-shadow:0 2px 16px rgba(0,0,0,0.1);">
+      <img src="photos/klink-email-dropoff.png" alt="降車通知" style="width:280px;border-radius:12px;box-shadow:0 2px 16px rgba(0,0,0,0.1);">
+    </div>
+  </div>
+
+</div>
+
+<!-- 終了セクション -->
+<div style="position:relative;padding:80px 32px;text-align:center;margin-top:40px;overflow:hidden;">
+  <img src="photos/fleet-shrine.jpg" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:0;">
+  <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1;"></div>
+  <div style="position:relative;z-index:2;color:#fff;">
+  <div style="font-weight:700;font-size:1.6rem;margin-bottom:12px;">木の子交通株式会社　羽田空港営業所</div>
+  <div style="font-style:italic;font-size:1.1rem;color:#b8945a;margin-bottom:24px;">移動という時間に、上質なゆとりを</div>
+  <div style="display:flex;justify-content:center;align-items:center;gap:24px;margin-top:20px;">
+    <a href="https://kinoko-group.co.jp" target="_blank" style="color:#fff;font-size:1rem;text-decoration:underline;text-underline-offset:4px;">kinoko-group.co.jp</a>
+    <a href="https://www.instagram.com/kinokoclubconcierge" target="_blank" style="display:inline-block;">
+      <img src="photos/instagram-color.svg" alt="Instagram" style="width:36px;height:36px;">
+    </a>
+  </div>
+  </div>
+</div>
+</body>
+</html>
