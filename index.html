@@ -955,17 +955,28 @@
   /* ── 大屏投影/演讲用 ── */
   @media (min-width: 1200px) {
     html {
-      font-size: 2em;
+      font-size: 1.3em;
+    }
+    /* 照片全部放大 */
+    .vehicle-card .photo-area {
+      height: 600px;
+    }
+    .carousel .slide img {
+      height: 70vh;
+    }
+    .section img {
+      max-width: 100%;
     }
   }
   @media (min-width: 1800px) {
     html {
-      font-size: 2.5em;
+      font-size: 1.5em;
     }
-  }
-  @media (min-width: 2400px) {
-    html {
-      font-size: 3em;
+    .vehicle-card .photo-area {
+      height: 800px;
+    }
+    .carousel .slide img {
+      height: 80vh;
     }
   }
 </style>
