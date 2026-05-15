@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>JCA Presentation 2026 — 木の子交通 × Kinoko Club Concierge（Mobile）</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+  background: #f5f2ec;
+  color: #2a2520;
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  padding: 56px 24px 44px;
+}
+.header::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: #c8bda8;
+  margin: 28px auto 0;
+}
+.header .org {
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  color: #b8a590;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+.header h1 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 3px;
+  color: #2a2520;
+  margin-bottom: 8px;
+}
+.header .sub {
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  color: #8a7a6a;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 300;
+}
+
+/* ── Part Divider ── */
+.part-divider {
+  text-align: center;
+  padding: 48px 24px 32px;
+}
+.part-divider .line {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #c8bda8 20%, #c8bda8 80%, transparent);
+  margin-bottom: 24px;
+}
+.part-divider .part-num {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 5px;
+  color: #b8a590;
+  font-weight: 300;
+  display: block;
+  margin-bottom: 6px;
+}
+.part-divider h2 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 3px;
+  color: #2a2520;
+}
+.part-divider .part-sub {
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  color: #8a7a6a;
+  margin-top: 6px;
+}
+
+/* ── Section ── */
+.section {
+  padding: 36px 20px;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+.section-title {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.section-title .num {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  color: #b8945a;
+  font-weight: 400;
+}
+.section-title h3 {
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: #2a2520;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ── Bullet List ── */
+.bullet-list {
+  list-style: none;
+  padding: 0;
+}
+.bullet-list li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 8px;
+  font-size: 0.88rem;
+  letter-spacing: 0.5px;
+  color: #4a4038;
+}
+.bullet-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: #c8bda8;
+}
+
+/* ── Highlight Box ── */
+.highlight-box {
+  background: rgba(184,149,90,0.06);
+  border-left: 2px solid #b8945a;
+  padding: 16px 18px;
+  margin: 20px 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.5px;
+  color: #5a4a3a;
+  line-height: 1.9;
+}
+
+/* ── Photo full width ── */
+.photo-full {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid rgba(0,0,0,0.06);
+  margin-bottom: 12px;
+}
+
+/* ── Vehicle Card ── */
+.vehicle-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.vehicle-card .photo-area {
+  width: 100%;
+  overflow: hidden;
+  background: #e8e2d6;
+}
+.vehicle-card .photo-area img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+.vehicle-card .info {
+  padding: 14px 16px;
+}
+.vehicle-card .name {
+  font-size: 0.88rem;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  color: #2a2520;
+  margin-bottom: 8px;
+}
+.vehicle-card .specs {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.vehicle-card .spec {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  color: #8a7a6a;
+}
+.vehicle-card .spec span {
+  display: block;
+  font-size: 0.6rem;
+  letter-spacing: 1.5px;
+  color: #c0b0a0;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+/* ── Driver Card (mobile vertical) ── */
+.driver-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  margin-bottom: 32px;
+  overflow: hidden;
+  padding-bottom: 24px;
+}
+.driver-card .d-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 24px 16px 20px;
+  color: #1a1a1a;
+}
+.driver-card .photos-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 12px;
+  margin-bottom: 20px;
+}
+.driver-card .photos-row .arrow-icon {
+  font-size: 1.2rem;
+  color: #b8945a;
+  flex-shrink: 0;
+}
+.driver-card .photo-wrap {
+  text-align: center;
+  flex-shrink: 0;
+}
+.driver-card .photo-wrap img {
+  width: 38vw;
+  height: 52vw;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+.driver-card .photo-wrap.after-wrap {
+  position: relative;
+}
+.driver-card .photo-wrap.after-wrap .glow-border {
+  position: absolute;
+  top: -4px; left: -4px; right: -4px; bottom: -4px;
+  border-radius: 8px;
+  background: linear-gradient(135deg,#f5e6c8,#b8945a,#f5e6c8,#b8945a);
+  background-size: 300% 300%;
+  animation: shimmer 2s ease infinite;
+  box-shadow: 0 0 16px rgba(184,148,90,0.5), 0 0 40px rgba(184,148,90,0.2);
+  z-index: 0;
+}
+.driver-card .photo-wrap.after-wrap img {
+  position: relative;
+  z-index: 1;
+  filter: brightness(1.2) contrast(1.05);
+  box-shadow: 0 0 30px rgba(255,255,255,0.8), 0 0 60px rgba(255,215,0,0.4);
+  animation: glow-pulse 1.5s ease infinite;
+}
+.driver-card .photo-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-top: 6px;
+}
+.driver-card .photo-label.before { color: #999; }
+.driver-card .photo-label.after { color: #b8945a; }
+
+.driver-card .d-info {
+  padding: 0 20px;
+}
+.driver-card .d-name {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  color: #1a1a1a;
+}
+.driver-card .d-name .badge {
+  display: inline-block;
+  background: #b8945a;
+  color: #fff;
+  font-size: 0.6rem;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+.driver-card .d-detail {
+  font-size: 0.82rem;
+  letter-spacing: 0.5px;
+  color: #4a4038;
+  line-height: 1.9;
+}
+.driver-card .d-detail strong {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 2px;
+}
+
+/* ── Animations ── */
+@keyframes shimmer {
+  0%   { background-position: 0% 50%; box-shadow: 0 0 16px rgba(184,148,90,0.5), 0 0 40px rgba(184,148,90,0.2); }
+  50%  { background-position: 100% 50%; box-shadow: 0 0 32px rgba(184,148,90,0.8), 0 0 64px rgba(255,215,0,0.4); }
+  100% { background-position: 0% 50%; box-shadow: 0 0 16px rgba(184,148,90,0.5), 0 0 40px rgba(184,148,90,0.2); }
+}
+@keyframes glow-pulse {
+  0%   { filter: brightness(1.15) contrast(1.05); box-shadow: 0 0 24px rgba(255,255,255,0.6), 0 0 48px rgba(184,148,90,0.3); }
+  50%  { filter: brightness(1.25) contrast(1.08); box-shadow: 0 0 40px rgba(255,255,255,0.8), 0 0 80px rgba(255,215,0,0.5); }
+  100% { filter: brightness(1.15) contrast(1.05); box-shadow: 0 0 24px rgba(255,255,255,0.6), 0 0 48px rgba(184,148,90,0.3); }
+}
+
+/* ── Amenities Grid ── */
+.amenities-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 20px;
+}
+.amenity-item {
+  text-align: center;
+}
+.amenity-item img {
+  width: 100%;
+  height: auto;
+  max-height: 160px;
+  object-fit: contain;
+}
+.amenity-item .label {
+  font-size: 0.8rem;
+  margin-top: 6px;
+  color: #4a4038;
+}
+.amenity-item .price {
+  font-size: 0.72rem;
+  color: #b8945a;
+}
+
+/* ── LINE screenshots horizontal scroll ── */
+.line-scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 16px 0;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+.line-scroll::-webkit-scrollbar { display: none; }
+.line-scroll img {
+  width: 200px;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+
+/* ── K-LINK section ── */
+.klink-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0;
+}
+.klink-box {
+  width: 100%;
+  border-radius: 8px;
+  padding: 16px 20px;
+  text-align: center;
+}
+.klink-box.office { background: #f5f2ec; border: 2px solid #b8945a; }
+.klink-box.system { background: #b8945a; color: #fff; }
+.klink-box.driver { background: #f5f2ec; border: 2px solid #b8945a; }
+.klink-box.concierge { background: #1a1a1a; color: #fff; }
+.klink-box .box-title { font-weight: 700; font-size: 0.95rem; }
+.klink-box .box-sub { font-size: 0.75rem; margin-top: 4px; }
+.klink-box.concierge .box-sub { color: #ccc; }
+.klink-box.office .box-sub, .klink-box.driver .box-sub { color: #555; }
+.klink-arrow {
+  font-size: 1.2rem;
+  color: #b8945a;
+}
+
+/* ── Day Card ── */
+.day-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+.day-card .day-header {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  background: #faf8f5;
+}
+.day-card .day-header .day-num {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  color: #b8945a;
+  font-weight: 300;
+}
+.day-card .day-header .day-route {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: #2a2520;
+}
+.day-card .day-body {
+  padding: 16px;
+}
+.day-card .spot {
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 10px;
+  font-size: 0.84rem;
+  letter-spacing: 0.5px;
+  color: #4a4038;
+  line-height: 1.8;
+}
+.day-card .spot::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: #c8bda8;
+}
+.day-card .spot .tag {
+  display: inline-block;
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+  color: #b8945a;
+  border: 1px solid rgba(184,149,90,0.3);
+  padding: 1px 6px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+.day-card .hotel {
+  color: #b8945a;
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  padding-left: 16px;
+  position: relative;
+  margin-top: 6px;
+}
+.day-card .hotel::before {
+  content: "◇";
+  position: absolute;
+  left: 0;
+  font-size: 0.6rem;
+  color: #c8bda8;
+  top: 3px;
+}
+.day-card .note {
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  color: #8a7a6a;
+  margin-top: 10px;
+  font-style: italic;
+  padding-left: 16px;
+}
+
+/* ── Carousel (mobile) ── */
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #ebe6dc;
+}
+.carousel .slides {
+  display: flex;
+  transition: transform 0.4s ease;
+  will-change: transform;
+}
+.carousel .slide {
+  min-width: 100%;
+  position: relative;
+}
+.carousel .slide img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+.carousel .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(0,0,0,0.08);
+  color: #5a5040;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  border-radius: 0;
+}
+.carousel .arrow--prev { left: 8px; }
+.carousel .arrow--next { right: 8px; }
+.carousel .dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+.carousel .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  border: 1px solid rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+.carousel .dot.active {
+  background: #b8945a;
+  border-color: #b8945a;
+}
+.carousel .counter {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.85);
+  background: rgba(0,0,0,0.3);
+  padding: 2px 7px;
+  border-radius: 8px;
+  z-index: 2;
+}
+
+/* Spot carousel label */
+.spot-carousel {
+  margin-bottom: 16px;
+}
+.spot-carousel .spot-label {
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  color: #b8945a;
+  margin-bottom: 6px;
+  padding: 0 16px;
+}
+
+/* ── DMC Team photos ── */
+.dmc-photos {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0;
+}
+.dmc-photos img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ── Closing section ── */
+.closing-banner {
+  position: relative;
+  padding: 56px 20px;
+  text-align: center;
+  overflow: hidden;
+}
+.closing-banner .bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  z-index: 0;
+}
+.closing-banner .overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+.closing-banner .content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+/* ── Closing card ── */
+.closing-card {
+  text-align: center;
+  padding: 48px 20px;
+  background: #f5f2ec;
+}
+
+/* ── Thank You ── */
+.thankyou {
+  width: 100%;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  margin-top: 0;
+}
+.thankyou .bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover;
+}
+.thankyou .inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 40px 20px;
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════ HEADER ════════════════ -->
+<div class="header">
+  <div class="org">木の子交通株式会社</div>
+  <h1>JCA Presentation 2026</h1>
+  <div class="sub">KINOKO CLUB CONCIERGE</div>
+</div>
+
+<!-- ════════════════ PART 1 ════════════════ -->
+<div class="part-divider">
+  <span class="line"></span>
+  <span class="part-num">PART 1</span>
+  <h2>ハイヤー事業</h2>
+  <div class="part-sub">木の子交通株式会社</div>
+</div>
+
+<!-- Section 01: 羽田空港営業所 -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">01</span>
+    <h3>羽田空港営業所</h3>
+  </div>
+  <ul class="bullet-list">
+    <li>本社：東京都大田区羽田五丁目3番1号</li>
+    <li>車庫が羽田空港より車で約10分</li>
+    <li>フライト変更や到着遅延に柔軟対応</li>
+  </ul>
+  <div style="margin-top:20px;">
+    <img src="photos/本社ビル外観.png" alt="本社ビル" class="photo-full">
+    <img src="photos/車庫.png" alt="車庫" class="photo-full" style="height:200px;object-fit:cover;">
+  </div>
+</div>
+
+<!-- Section 02: 車種ラインナップ -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">02</span>
+    <h3>車種ラインナップ</h3>
+  </div>
+
+  <div class="vehicle-card">
+    <div class="photo-area"><img src="vehicle_photos/benz-vluxury-torii.jpg" alt="BENZ V LUXURY"></div>
+    <div class="info">
+      <div class="name">BENZ V LUXURY</div>
+      <div class="specs">
+        <div class="spec"><span>定員</span>7名</div>
+        <div class="spec"><span>推奨</span>5名</div>
+        <div class="spec"><span>スーツケース</span>6個</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vehicle-card">
+    <div class="photo-area"><img src="vehicle_photos/alphard-torii.jpg" alt="ALPHARD"></div>
+    <div class="info">
+      <div class="name">ALPHARD</div>
+      <div class="specs">
+        <div class="spec"><span>定員</span>7名</div>
+        <div class="spec"><span>推奨</span>4名</div>
+        <div class="spec"><span>スーツケース</span>4個</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vehicle-card">
+    <div class="photo-area"><img src="vehicle_photos/hiace-torii.jpg" alt="TOYOTA HIACE"></div>
+    <div class="info">
+      <div class="name">TOYOTA HIACE</div>
+      <div class="specs">
+        <div class="spec"><span>定員</span>10名</div>
+        <div class="spec"><span>推奨</span>8名</div>
+        <div class="spec"><span>スーツケース</span>10個</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vehicle-card">
+    <div class="photo-area"><img src="vehicle_photos/granace-torii.jpg" alt="GRANACE"></div>
+    <div class="info">
+      <div class="name">GRANACE</div>
+      <div class="specs">
+        <div class="spec"><span>定員</span>6名</div>
+        <div class="spec"><span>推奨</span>4名</div>
+        <div class="spec"><span>スーツケース</span>4個</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box" style="margin-top:20px;">
+    <strong>オリジナル「おまかせプラン」</strong><br>
+    人数や用途に応じて最適な車種を同一料金で提供<br>
+    深夜・早朝の追加料金なし<br>
+    高速料金・消費税・回送料すべて込み
+  </div>
+</div>
+
+<!-- Section 03: オプションサービス -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">03</span>
+    <h3>オプションサービス</h3>
+  </div>
+
+  <!-- タオル & ギフトボックス -->
+  <div style="margin-bottom:24px;">
+    <div style="text-align:center;margin-bottom:16px;">
+      <img src="photos/タオル実写.png" alt="タオル" style="width:100%;height:200px;object-fit:cover;border-radius:8px;">
+      <div style="font-size:0.88rem;margin-top:8px;font-weight:500;">タオルサービス</div>
+    </div>
+    <div style="text-align:center;">
+      <img src="photos/ギフトボックス実写.png" alt="ギフトボックス" style="width:100%;height:200px;object-fit:cover;border-radius:8px;">
+      <div style="font-size:0.88rem;margin-top:8px;font-weight:500;">ギフトボックス</div>
+      <div style="font-size:0.75rem;color:#b8945a;">¥6,500～</div>
+    </div>
+  </div>
+
+  <!-- その他アメニティ -->
+  <div class="amenities-grid">
+    <div class="amenity-item">
+      <img src="photos/img-amenities-02.png" alt="ミネラルウォーター">
+      <div class="label">紙ミネラルウォーター</div>
+    </div>
+    <div class="amenity-item">
+      <img src="photos/img-amenities-04.png" alt="ミニ冷蔵庫">
+      <div class="label">ミニ冷蔵庫</div>
+    </div>
+    <div class="amenity-item">
+      <img src="photos/img-amenities-05.png" alt="チャイルドシート">
+      <div class="label">チャイルドシート</div>
+    </div>
+    <div class="amenity-item">
+      <img src="photos/img-amenities-06.png" alt="踏み台">
+      <div class="label">踏み台</div>
+    </div>
+    <div class="amenity-item">
+      <img src="photos/img-amenities-08.png" alt="車椅子">
+      <div class="label">車椅子</div>
+      <div class="price">¥3,300～</div>
+    </div>
+    <div class="amenity-item">
+      <img src="photos/img-amenities-09.png" alt="ポケットWiFi">
+      <div class="label">ポケットWiFi</div>
+      <div class="price">¥1,100～/日</div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 04: 私たちのドライバー -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">04</span>
+    <h3>私たちのドライバー</h3>
+  </div>
+
+  <!-- Driver 1 -->
+  <div class="driver-card">
+    <div class="d-title">元俳優のドライバー</div>
+    <div class="photos-row">
+      <div class="photo-wrap">
+        <img src="photos/driver-yamamoto-before.png" alt="Before">
+        <div class="photo-label before">BEFORE</div>
+      </div>
+      <div class="arrow-icon">→</div>
+      <div class="photo-wrap after-wrap">
+        <div class="glow-border"></div>
+        <img src="photos/driver-yamamoto-after.png" alt="After">
+        <div class="photo-label after">AFTER</div>
+      </div>
+    </div>
+    <div class="d-info">
+      <div class="d-name">山本 真敬｜41歳｜大阪出身</div>
+      <div class="d-detail">
+        <strong>お客様によく言われること</strong>
+        「運転が上手い」<br>「落ち着いている」
+        <strong>この仕事で好きな瞬間</strong>
+        「ありがとう」と言って握手していただけたとき<br>「日本は素晴らしい国ですね」と言ってもらえるとき
+        <strong>東京の好きな場所</strong>
+        東京タワー・銀座・二子玉川・豊洲
+      </div>
+    </div>
+  </div>
+
+  <!-- Driver 2 -->
+  <div class="driver-card">
+    <div class="d-title">元船舶操縦士のドライバー</div>
+    <div class="photos-row">
+      <div class="photo-wrap">
+        <img src="photos/driver-ship.jpg" alt="Before">
+        <div class="photo-label before">BEFORE</div>
+      </div>
+      <div class="arrow-icon">→</div>
+      <div class="photo-wrap after-wrap">
+        <div class="glow-border"></div>
+        <img src="photos/driver-ship.jpg" alt="After">
+        <div class="photo-label after">AFTER</div>
+      </div>
+    </div>
+    <div class="d-info">
+      <div class="d-name">楠田 恭子｜30歳｜佐賀県出身 <span class="badge">英語対応可</span></div>
+      <div class="d-detail">
+        <strong>お客様によく言われること</strong>
+        「英語がお上手ですね」<br>「運転がうまいね！」
+        <strong>この仕事で好きな瞬間</strong>
+        お客様から「ありがとう」と言って握手していただけたとき<br>お客様が笑顔で車を降りられたとき
+        <strong>東京の好きな場所</strong>
+        レインボーブリッジ（橋から見える海の景色）
+      </div>
+    </div>
+  </div>
+
+  <!-- Driver 3 -->
+  <div class="driver-card">
+    <div class="d-title">元アパレル販売員のドライバー</div>
+    <div class="photos-row">
+      <div class="photo-wrap">
+        <img src="photos/driver-fujino.jpg" alt="Before">
+        <div class="photo-label before">BEFORE</div>
+      </div>
+      <div class="arrow-icon">→</div>
+      <div class="photo-wrap after-wrap">
+        <div class="glow-border"></div>
+        <img src="photos/driver-fujino.jpg" alt="After">
+        <div class="photo-label after">AFTER</div>
+      </div>
+    </div>
+    <div class="d-info">
+      <div class="d-name">藤野 浩幹｜29歳｜埼玉出身 <span class="badge">英語対応可</span></div>
+      <div class="d-detail">
+        <strong>お客様によく言われること</strong>
+        「運転が上手い」「紳士的で親切だった」<br>「英語で対応してもらえて助かった」「車内が綺麗でリラックスできた」
+        <strong>この仕事で好きな瞬間</strong>
+        「また東京に来たら運転してほしい」と言われたとき<br>初めての場所でお客様と一緒に感動できたとき<br>自分の語学力や気遣いを褒められたとき
+        <strong>東京の好きな場所</strong>
+        渋谷・原宿——ファッションやグルメの最先端が集まる街
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 05: 研修と教育 -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">05</span>
+    <h3>研修と教育</h3>
+  </div>
+  <p style="font-size:0.84rem;letter-spacing:0.5px;color:#4a4038;margin-bottom:20px;line-height:1.9;">ホテルコンシェルジュの方々からサービス研修を受け、ホテルならではのおもてなしを学ぶとともに、ホテルサービスへの理解も深まりました。</p>
+  <div style="margin-bottom:28px;">
+    <img src="photos/kenshu.jpg" alt="研修写真" style="width:100%;height:auto;object-fit:cover;border-radius:8px;margin-bottom:12px;">
+    <img src="photos/kenshu2.jpg" alt="研修写真2" style="width:100%;height:auto;object-fit:cover;border-radius:8px;">
+  </div>
+
+  <div style="border-top:1px solid #e8e4df;padding-top:24px;">
+    <h4 style="font-size:1rem;color:#1a1a1a;margin-bottom:10px;">〜LINEグループ投稿 Best Award〜</h4>
+    <p style="font-size:0.82rem;letter-spacing:0.5px;color:#4a4038;margin-bottom:16px;line-height:1.9;">乗務で忙しい日々の中、ドライバー同士が顔を合わせる時間が少ないため、実施している社内表彰制度です。<br>現場で得た最新の観光情報や交通情報、お客様対応の工夫などをLINEグループで積極的に共有してもらい、ドライバー同士の交流や情報共有を促進しています。<br>年末には全員で投票を行い、Best Award受賞者には賞金20万円</p>
+    <div class="line-scroll">
+      <img src="photos/line-share-1.jpg" alt="LINE共有例">
+      <img src="photos/line-share-2.jpg" alt="LINE共有例">
+      <img src="photos/line-share-3.jpg" alt="LINE共有例">
+      <img src="photos/line-share-4.jpg" alt="LINE共有例">
+      <img src="photos/line-share-5.jpg" alt="LINE共有例">
+      <img src="photos/line-share-6.jpg" alt="LINE共有例">
+      <img src="photos/line-share-7.jpg" alt="LINE共有例">
+      <img src="photos/line-share-8.jpg" alt="LINE共有例">
+      <img src="photos/line-share-9.jpg" alt="LINE共有例">
+    </div>
+  </div>
+</div>
+
+<!-- Section 06: K-LINK -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">06</span>
+    <h3>K-LINK 自社配車システム</h3>
+  </div>
+  <p style="font-size:0.84rem;letter-spacing:0.5px;color:#4a4038;margin-bottom:20px;line-height:1.9;">ドライバーがスマートフォンで「出発」「終了」をタップするだけで、乗車・降車報告が自動でコンシェルジュへ通知されます。<br>現場状況をリアルタイムで共有することで、情報の透明化とスムーズな連携を実現しています。</p>
+
+  <!-- K-LINK Flow Diagram -->
+  <div class="klink-flow">
+    <div class="klink-box office">
+      <div class="box-title">🏢 オフィス</div>
+      <div class="box-sub">予約入力・配車・変更</div>
+    </div>
+    <div class="klink-arrow">↓</div>
+    <div class="klink-box system">
+      <div class="box-title">K-LINK</div>
+      <div class="box-sub">リアルタイム同期</div>
+    </div>
+    <div class="klink-arrow">↓</div>
+    <div class="klink-box driver">
+      <div class="box-title">🚗 ドライバー</div>
+      <div class="box-sub">「開始」「終了」タップ</div>
+    </div>
+    <div class="klink-arrow">↓</div>
+    <div class="klink-box concierge">
+      <div class="box-title">✉️ コンシェルジュ</div>
+      <div class="box-sub">乗車・降車報告を自動通知</div>
+    </div>
+  </div>
+
+  <!-- Notification emails -->
+  <div style="margin-top:20px;">
+    <img src="photos/klink-email-pickup.png" alt="乗車通知" style="width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.08);margin-bottom:12px;">
+    <img src="photos/klink-email-dropoff.png" alt="降車通知" style="width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+  </div>
+</div>
+
+<!-- Part 1 Closing Banner -->
+<div class="closing-banner">
+  <img src="photos/fleet-shrine.jpg" alt="" class="bg">
+  <div class="overlay"></div>
+  <div class="content">
+    <div style="font-weight:700;font-size:1.15rem;margin-bottom:10px;">木の子交通株式会社　羽田空港営業所</div>
+    <div style="font-style:italic;font-size:0.9rem;color:#b8945a;margin-bottom:20px;">移動という時間に、上質なゆとりを</div>
+    <div style="display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap;">
+      <a href="https://kinoko-group.co.jp" target="_blank" style="color:#fff;font-size:0.85rem;text-decoration:underline;text-underline-offset:4px;">kinoko-group.co.jp</a>
+      <a href="https://www.instagram.com/kinokoclubconcierge" target="_blank">
+        <img src="photos/instagram-color.svg" alt="Instagram" style="width:28px;height:28px;">
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ PART 2 ════════════════ -->
+<div class="part-divider">
+  <span class="line"></span>
+  <span class="part-num">PART 2</span>
+  <h2>DMC事業</h2>
+  <div class="part-sub">Kinoko Club Concierge</div>
+</div>
+
+<!-- Section 01: 私たちのチーム -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">01</span>
+    <h3>私たちのチーム</h3>
+  </div>
+  <div style="font-size:0.84rem;color:#4a3a2a;line-height:2.4;letter-spacing:0.5px;margin-bottom:20px;">
+    • 多言語ネイティブ対応<br>
+    • 半数以上が業界経験10年以上のベテランスタッフ<br>
+    • MICE・ラグジュアリートラベル専門アドバイザー在籍
+  </div>
+  <div class="dmc-photos">
+    <img src="photos/dmc-sign.jpg" alt="">
+    <img src="photos/dmc-office.jpg" alt="">
+    <img src="photos/dmc-team.jpg" alt="">
+  </div>
+</div>
+
+<!-- Section 02: サービスの特徴 -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">02</span>
+    <h3>サービスの特徴</h3>
+  </div>
+  <div style="font-size:0.84rem;color:#4a3a2a;line-height:2.4;letter-spacing:0.5px;margin-bottom:20px;">
+    — 富裕層・ハイエンドゲスト専門<br>
+    — MICE・インセンティブ旅行の対応に特化<br>
+    — 一般公開されていない特別アレンジを多数ご用意<br>
+    — ゲスト一人ひとりのペースに寄り添った全行程サポート<br>
+    — 旅行会社・ホテルコンシェルジュ向けのBtoBサービス
+  </div>
+  <img src="photos/dmc-features-banner.png" alt="" style="width:100%;height:180px;object-fit:cover;border-radius:8px;">
+</div>
+
+<!-- Section 03: プレミアム行程例 -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">03</span>
+    <h3>プレミアム行程例</h3>
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-num">DAY 1</span>
+      <span class="day-route">関西空港 → 京都</span>
+    </div>
+    <div class="day-body">
+      <div class="spot">関西国際空港 VIPアシストサービス</div>
+      <div class="spot">光明院にて茶道体験 <span class="tag">非公開・特別手配</span></div>
+      <div class="spot">光明院本堂にて精進料理の夕食 <span class="tag">僧侶が給仕・京芸妓による舞の披露</span></div>
+      <div class="hotel">京都ホテル泊</div>
+    </div>
+    <div style="padding:0 16px 16px;">
+      <div class="spot-carousel">
+        <div class="spot-label">光明院にて茶道体験</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/光明院にて茶道体験1v2.jpg" alt="茶道体験"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">‹</button>
+          <button class="arrow arrow--next" aria-label="次へ">›</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+      <div class="spot-carousel">
+        <div class="spot-label">光明院本堂にて精進料理の夕食（僧侶の給仕・芸妓の舞）</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食2.jpg" alt="夕食"></div>
+            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食3.jpg" alt="夕食"></div>
+            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食4.jpg" alt="夕食"></div>
+            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食5.jpg" alt="夕食"></div>
+            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食6.jpg" alt="夕食"></div>
+            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食8.jpg" alt="夕食" style="object-position:center top;"></div>
+            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食9.jpg" alt="夕食"></div>
+            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食10.jpg" alt="夕食" style="object-position:center bottom;"></div>
+            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食11.jpg" alt="夕食"></div>
+            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食12.jpg" alt="夕食"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">‹</button>
+          <button class="arrow arrow--next" aria-label="次へ">›</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-num">DAY 2</span>
+      <span class="day-route">京都</span>
+    </div>
+    <div class="day-body">
+      <div class="spot">清水寺特別拝観 <span class="tag">非公開エリア・僧侶が案内</span></div>
+      <div class="spot">刺繍工房見学 <span class="tag">京繍伝統工芸士・長艸氏による実演解説</span><span class="tag">エルメスとのコラボレーション実績</span></div>
+      <div class="spot">老舗エリア散策・お買い物</div>
+      <div class="hotel">京都ホテル泊</div>
+    </div>
+    <div style="padding:0 16px 16px;">
+      <div class="spot-carousel">
+        <div class="spot-label">清水寺特別拝観</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/清水寺VIP特別見学1v2.jpg" alt="清水寺VIP"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">‹</button>
+          <button class="arrow arrow--next" aria-label="次へ">›</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+      <div class="spot-carousel">
+        <div class="spot-label">刺繍工房見学（長艸氏・エルメスコラボ）</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/刺繍工房見学1.jpg" alt="刺繍工房"></div>
+            <div class="slide"><img src="photos/刺繍工房見学2.jpg" alt="刺繍工房"></div>
+            <div class="slide"><img src="photos/刺繍工房見学3.jpg" alt="刺繍工房"></div>
+            <div class="slide"><img src="photos/刺繍工房見学4.jpg" alt="刺繍工房"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">‹</button>
+          <button class="arrow arrow--next" aria-label="次へ">›</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-num">DAY 3</span>
+      <span class="day-route">京都 → 奈良</span>
+    </div>
+    <div class="day-body">
+      <div class="spot">東大寺と正倉院 外部見学 <span class="tag">正倉院事務所元所長同行解説</span></div>
+      <div class="spot">奈良公園 自由散策</div>
+      <div class="spot">西大寺 大碗茶体験 <span class="tag">日本最大の茶碗による茶の湯</span></div>
+      <div class="hotel">京都ホテル泊</div>
+    </div>
+    <div style="padding:0 16px 16px;">
+      <div class="spot-carousel">
+        <div class="spot-label">東大寺と正倉院（元所長解説）</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/東大寺と正倉院1.jpg" alt="東大寺と正倉院"></div>
+            <div class="slide"><img src="photos/東大寺と正倉院2.jpg" alt="東大寺と正倉院"></div>
+            <div class="slide"><img src="photos/東大寺と正倉院3.jpg" alt="東大寺と正倉院"></div>
+            <div class="slide"><img src="photos/東大寺と正倉院4.jpg" alt="東大寺と正倉院"></div>
+            <div class="slide"><img src="photos/東大寺と正倉院5.jpg" alt="東大寺と正倉院"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">‹</button>
+          <button class="arrow arrow--next" aria-label="次へ">›</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+      <div class="spot-carousel">
+        <div class="spot-label">西大寺 大碗茶体験</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/大碗茶体験1.jpg" alt="大碗茶体験"></div>
+            <div class="slide"><img src="photos/大碗茶体験2.jpg" alt="大碗茶体験" style="object-position:center bottom;"></div>
+            <div class="slide"><img src="photos/大碗茶体験3.jpg" alt="大碗茶体験"></div>
+            <div class="slide"><img src="photos/大碗茶体験4.jpg" alt="大碗茶体験"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">‹</button>
+          <button class="arrow arrow--next" aria-label="次へ">›</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 4 -->
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-num">DAY 4</span>
+      <span class="day-route">奈良 → 滋賀 → 福井</span>
+    </div>
+    <div class="day-body">
+      <div class="spot">琵琶湖テラス</div>
+      <div class="spot">白鬚神社 水中鳥居</div>
+      <div class="spot">高村作 包丁工房見学 <span class="tag">nomaシェフ推奨・「グランメゾン東京」原型</span><span class="tag">お名前入りの包丁を手彫りで進呈・欧米ゲストから特に高い評価を得ている</span></div>
+      <div class="hotel">望洋楼泊</div>
+    </div>
+    <div style="padding:0 16px 16px;">
+      <div class="spot-carousel">
+        <div class="spot-label">琵琶湖テラス</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/琵琶湖テラス1.jpg" alt="琵琶湖テラス"></div>
+            <div class="slide"><img src="photos/琵琶湖テラス2.jpg" alt="琵琶湖テラス"></div>
+            <div class="slide"><img src="photos/琵琶湖テラス3.jpg" alt="琵琶湖テラス"></div>
+            <div class="slide"><img src="photos/琵琶湖テラス4.jpg" alt="琵琶湖テラス"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">‹</button>
+          <button class="arrow arrow--next" aria-label="次へ">›</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+      <div class="spot-carousel">
+        <div class="spot-label">白鬚神社 水中鳥居</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/白鬚神社 水中鳥居2.jpg" alt="白鬚神社水中鳥居"></div>
+            <div class="slide"><img src="photos/白鬚神社 水中鳥居_webp.jpg" alt="白鬚神社水中鳥居"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">‹</button>
+          <button class="arrow arrow--next" aria-label="次へ">›</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+      <div class="spot-carousel">
+        <div class="spot-label">高村作 包丁工房</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/高村作工房見学1.JPG" alt="高村作工房"></div>
+            <div class="slide"><img src="photos/高村作工房見学2.jpg" alt="高村作工房"></div>
+            <div class="slide"><img src="photos/高村作工房見学3.JPG" alt="高村作工房"></div>
+            <div class="slide"><img src="photos/高村作工房見学4.JPG" alt="高村作工房" style="object-position:center top;"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">‹</button>
+          <button class="arrow arrow--next" aria-label="次へ">›</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 5 -->
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-num">DAY 5</span>
+      <span class="day-route">福井</span>
+    </div>
+    <div class="day-body">
+      <div class="spot">永平寺特別拝観 <span class="tag">禅の本山・非公開エリア含む僧侶案内</span></div>
+      <div class="spot">黒龍酒造 ESHIKOTO <span class="tag">非公開蔵見学</span><span class="tag">鮨さいとうコラボ特別ランチ</span><span class="tag">レア六種試飲・日本酒専門家解説</span></div>
+      <div class="hotel">望洋楼泊</div>
+    </div>
+    <div style="padding:0 16px 16px;">
+      <div class="spot-carousel">
+        <div class="spot-label">黒龍酒造 ESHIKOTO</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/黒龍酒造7.JPG" alt="黒龍酒造"></div>
+            <div class="slide"><img src="photos/黒龍酒造2.jpg" alt="黒龍酒造"></div>
+            <div class="slide"><img src="photos/黒龍酒造3.jpg" alt="黒龍酒造" style="object-position:center 40%;"></div>
+            <div class="slide"><img src="photos/黒龍酒造4.jpg" alt="黒龍酒造"></div>
+            <div class="slide"><img src="photos/黒龍酒造5.JPG" alt="黒龍酒造"></div>
+            <div class="slide"><img src="photos/黒龍酒造6.jpg" alt="黒龍酒造" style="object-position:center top;"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">‹</button>
+          <button class="arrow arrow--next" aria-label="次へ">›</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 6 -->
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-num">DAY 6</span>
+      <span class="day-route">福井 → 金沢 → 東京</span>
+    </div>
+    <div class="day-body">
+      <div class="spot">兼六園</div>
+      <div class="spot">弓道体験</div>
+      <div class="spot">鈴木大拙館</div>
+      <div class="spot">新幹線で東京へ</div>
+      <div class="hotel">東京市内ホテル泊</div>
+    </div>
+    <div style="padding:0 16px 16px;">
+      <div class="spot-carousel">
+        <div class="spot-label">弓道体験</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/弓道体験1.png" alt="弓道体験"></div>
+            <div class="slide"><img src="photos/弓道体験2.png" alt="弓道体験"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">‹</button>
+          <button class="arrow arrow--next" aria-label="次へ">›</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+      <div class="spot-carousel">
+        <div class="spot-label">鈴木大拙館</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/鈴木大拙館１.jpg" alt="鈴木大拙館"></div>
+            <div class="slide"><img src="photos/鈴木大拙館2.jpg" alt="鈴木大拙館"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">‹</button>
+          <button class="arrow arrow--next" aria-label="次へ">›</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 7 -->
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-num">DAY 7</span>
+      <span class="day-route">東京</span>
+    </div>
+    <div class="day-body">
+      <div class="spot">東京国立博物館特別拝観 <span class="tag">休日特別公開・専門家同行解説</span></div>
+      <div class="spot">着物体験 <span class="tag">ドラマ御用達ブランド</span></div>
+      <div class="spot">浅草にて人力車体験</div>
+      <div class="hotel">東京市内ホテル泊</div>
+    </div>
+    <div style="padding:0 16px 16px;">
+      <div class="spot-carousel">
+        <div class="spot-label">東京国立博物館特別拝観</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/東京国立博物館特別拝観2.jpg" alt="東京国立博物館"></div>
+            <div class="slide"><img src="photos/東京国立博物館特別拝観1.jpg" alt="東京国立博物館"></div>
+            <div class="slide"><img src="photos/東京国立博物館特別拝観3.jpg" alt="東京国立博物館"></div>
+            <div class="slide"><img src="photos/東京国立博物館特別拝観4.jpg" alt="東京国立博物館"></div>
+            <div class="slide"><img src="photos/東京国立博物館特別拝観5.jpg" alt="東京国立博物館"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">‹</button>
+          <button class="arrow arrow--next" aria-label="次へ">›</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+      <div class="spot-carousel">
+        <div class="spot-label">着物体験</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/浅草着物体験3.jpg" alt="浅草着物体験"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">‹</button>
+          <button class="arrow arrow--next" aria-label="次へ">›</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 8 -->
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-num">DAY 8</span>
+      <span class="day-route">東京</span>
+    </div>
+    <div class="day-body">
+      <div class="spot">六本木 磁器倶楽部 <span class="tag">前田氏直々の指導で自分だけの茶碗制作</span></div>
+      <div class="spot">築地にて寿司作り体験</div>
+      <div class="spot">ヴィンテージ専門バイヤー同行ショッピング</div>
+      <div class="hotel">東京市内ホテル泊</div>
+    </div>
+    <div style="padding:0 16px 16px;">
+      <div class="spot-carousel">
+        <div class="spot-label">六本木 磁器倶楽部</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/六本木磁器倶楽部1.jpg" alt="六本木 磁器倶楽部" style="object-fit:contain;background:#f5f2ec;"></div>
+            <div class="slide"><img src="photos/六本木磁器倶楽部2.jpg" alt="六本木 磁器倶楽部"></div>
+            <div class="slide"><img src="photos/六本木磁器倶楽部4.jpg" alt="六本木 磁器倶楽部"></div>
+            <div class="slide"><img src="photos/六本木磁器倶楽部5.jpg" alt="六本木 磁器倶楽部"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">‹</button>
+          <button class="arrow arrow--next" aria-label="次へ">›</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+      <div class="spot-carousel">
+        <div class="spot-label">築地にて寿司作り体験</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/築地にて寿司作り体験3.JPG" alt="玉すし本店 寿司作り体験"></div>
+            <div class="slide"><img src="photos/築地にて寿司作り体験2.JPG" alt="玉すし本店 寿司作り体験"></div>
+            <div class="slide"><img src="photos/築地にて寿司作り体験1.JPG" alt="玉すし本店 寿司作り体験"></div>
+            <div class="slide"><img src="photos/築地にて寿司作り体験4.JPG" alt="玉すし本店 寿司作り体験"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">‹</button>
+          <button class="arrow arrow--next" aria-label="次へ">›</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 9 -->
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-num">DAY 9</span>
+      <span class="day-route">東京 発</span>
+    </div>
+    <div class="day-body">
+      <div class="spot">羽田空港 VIP出国サービス <span class="tag">ファストトラックによる出国サポート・専任スタッフによる対応</span></div>
+      <p class="note">チェックインから出国ゲートまで、専任スタッフが全行程をエスコート。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ CLOSING ════════════════ -->
+<div class="closing-card">
+  <div style="font-size:1.2rem;font-weight:700;letter-spacing:0.06em;color:#2a2a2a;">Kinoko Club Concierge</div>
+  <div style="font-size:0.88rem;color:#666;font-style:italic;margin-top:6px;">Your private concierge in Japan</div>
+  <div style="margin-top:16px;font-size:0.95rem;font-weight:700;color:#2a2a2a;display:flex;align-items:center;justify-content:center;gap:10px;">
+    Francois Gallon
+    <img src="photos/francois-avatar.png" alt="Francois" style="width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:left center;border:2px solid #d4c5a0;">
+  </div>
+  <div style="margin-top:10px;"><a href="mailto:francoisgallon@kinoko-group.co.jp" style="color:#8b6914;text-decoration:none;font-size:0.82rem;letter-spacing:0.03em;">francoisgallon@kinoko-group.co.jp</a></div>
+  <div style="margin-top:6px;"><a href="https://kinoko-group.co.jp/kinokoeng/" target="_blank" style="color:#666;text-decoration:none;font-size:0.82rem;letter-spacing:0.08em;">kinoko-group.co.jp/kinokoeng</a></div>
+</div>
+
+<!-- ════════════════ THANK YOU ════════════════ -->
+<div class="thankyou">
+  <img src="photos/thankyou-bg.png" alt="" class="bg">
+  <div class="inner">
+    <div style="font-size:2.8rem;font-weight:200;color:#5a4a3a;letter-spacing:0.2em;font-family:'Helvetica Neue',Arial,sans-serif;">THANK YOU</div>
+    <div style="font-size:1.1rem;color:#8a7a6a;margin-top:14px;letter-spacing:0.1em;font-weight:300;">ご清聴ありがとうございます</div>
+    <div style="margin-top:28px;font-size:0.78rem;color:#bbb;letter-spacing:0.08em;font-weight:300;">木の子交通株式会社</div>
+    <div style="margin-top:6px;font-size:0.85rem;font-weight:300;letter-spacing:0.3em;color:#aaa;">KINOKO CLUB CONCIERGE</div>
+  </div>
+</div>
+
+<!-- ════════════════ CAROUSEL JS ════════════════ -->
+<script>
+(function() {
+  document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
+    var slidesEl = carousel.querySelector('.slides');
+    var slides = slidesEl.querySelectorAll('.slide');
+    var dotsEl = carousel.querySelector('.dots');
+    var counterEl = carousel.querySelector('.counter');
+    var prevBtn = carousel.querySelector('.arrow--prev');
+    var nextBtn = carousel.querySelector('.arrow--next');
+    var current = 0;
+    var total = slides.length;
+
+    if (total <= 1) {
+      if (prevBtn) prevBtn.style.display = 'none';
+      if (nextBtn) nextBtn.style.display = 'none';
+    }
+
+    for (var i = 0; i < total; i++) {
+      (function(idx) {
+        var dot = document.createElement('span');
+        dot.className = 'dot' + (idx === 0 ? ' active' : '');
+        dot.addEventListener('click', function() { go(idx); });
+        dotsEl.appendChild(dot);
+      })(i);
+    }
+
+    function updateUI() {
+      slidesEl.style.transform = 'translateX(-' + (current * 100) + '%)';
+      if (counterEl) counterEl.textContent = (current + 1) + ' / ' + total;
+      var dots = dotsEl.querySelectorAll('.dot');
+      dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
+    }
+
+    function go(idx) {
+      current = ((idx % total) + total) % total;
+      updateUI();
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function() { go(current - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function() { go(current + 1); });
+
+    // Touch swipe support
+    var startX = 0, endX = 0;
+    carousel.addEventListener('touchstart', function(e) {
+      startX = e.touches[0].clientX;
+    }, {passive: true});
+    carousel.addEventListener('touchend', function(e) {
+      endX = e.changedTouches[0].clientX;
+      var diff = startX - endX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) go(current + 1);
+        else go(current - 1);
+      }
+    }, {passive: true});
+
+    updateUI();
+  });
+})();
+</script>
+
+</body>
+</html>
