@@ -1186,6 +1186,20 @@
 
   /* ── 大屏投影/演讲用 ── */
   @media (min-width: 1200px) {
+    /* 司机卡片：照片左文字右 */
+    .driver-section .d-card > div[style*="display:flex;justify-content:center"] {
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      justify-content: flex-start !important;
+      align-items: center !important;
+      gap: 40px !important;
+    }
+    .driver-section .d-card [style*="text-align:left;margin-left:60px"] {
+      margin-left: 0 !important;
+      max-width: 400px !important;
+      font-size: 1.1rem !important;
+    }
+
     html {
       font-size: 1.3em;
     }
