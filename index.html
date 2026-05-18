@@ -519,6 +519,29 @@
     border-radius: 2px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.07);
   }
+  .spot-grid {
+  margin-top: 20px;
+  margin-bottom: 24px;
+}
+.spot-grid .spot-label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #b8945a;
+  margin-bottom: 8px;
+  padding-left: 2px;
+}
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.photo-grid img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
 
   /* ── Fleet Section Banner ── */
   .fleet-banner {
@@ -842,7 +865,7 @@
 
     /* Section 04: Driver cards — stack vertically */
     .driver-section .d-card .d-title {
-      margin-bottom: 80px;
+      margin-bottom: 60px;
       font-size: 1.5rem;
     }
     .driver-section .d-card [style*="display:flex;justify-content:center;align-items:center"] {
@@ -1068,7 +1091,7 @@
 
   /* ── Part 1 専属CSS ── */
 .driver-section .d-card .d-title {
-      margin-bottom: 80px;
+      margin-bottom: 60px;
       font-size: 1.5rem;
     }
 
@@ -1640,42 +1663,25 @@
       <div class="spot">光明院にて茶道体験 <span class="tag">非公開・特別手配</span></div>
       <div class="spot">光明院本堂にて精進料理の夕食 <span class="tag">僧侶が給仕・京芸妓による舞の披露</span></div>
       <div class="hotel">京都ホテル泊</div>
-    </div>
-    <div class="day-photos">
-
-      <div class="spot-carousel">
+      <div class="spot-grid">
         <div class="spot-label">光明院にて茶道体験</div>
-        <div class="carousel" data-carousel>
-          <div class="slides">
-            <div class="slide"><img src="photos/光明院にて茶道体験1v3.jpg" alt="茶道体験"></div>
-          </div>
-          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
-          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
-          <div class="dots"></div>
-          <div class="counter"></div>
+        <div class="photo-grid">
+        <img src="photos/光明院にて茶道体験1v3.jpg" alt="茶道体験">
         </div>
       </div>
-      <div class="spot-carousel">
+      <div class="spot-grid">
         <div class="spot-label">光明院本堂にて精進料理の夕食（僧侶の給仕・芸妓の舞）</div>
-        <div class="carousel" data-carousel>
-          <div class="slides">
-            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食2.jpg" alt="夕食"></div>
-
-            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食3.jpg" alt="夕食"></div>
-            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食4.jpg" alt="夕食"></div>
-            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食5.jpg" alt="夕食"></div>
-            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食6.jpg" alt="夕食"></div>
-
-            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食8.jpg" alt="夕食" style="object-position:center top;"></div>
-            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食9.jpg" alt="夕食"></div>
-            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食10.jpg" alt="夕食" style="object-position:center bottom;"></div>
-            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食11.jpg" alt="夕食"></div>
-            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食12.jpg" alt="夕食"></div>
-          </div>
-          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
-          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
-          <div class="dots"></div>
-          <div class="counter"></div>
+        <div class="photo-grid">
+        <img src="photos/光明院本堂にて精進料理の夕食2.jpg" alt="夕食">
+        <img src="photos/光明院本堂にて精進料理の夕食3.jpg" alt="夕食">
+        <img src="photos/光明院本堂にて精進料理の夕食4.jpg" alt="夕食">
+        <img src="photos/光明院本堂にて精進料理の夕食5.jpg" alt="夕食">
+        <img src="photos/光明院本堂にて精進料理の夕食6.jpg" alt="夕食">
+        <img src="photos/光明院本堂にて精進料理の夕食8.jpg" alt="夕食" style="object-position:center top;">
+        <img src="photos/光明院本堂にて精進料理の夕食9.jpg" alt="夕食">
+        <img src="photos/光明院本堂にて精進料理の夕食10.jpg" alt="夕食" style="object-position:center bottom;">
+        <img src="photos/光明院本堂にて精進料理の夕食11.jpg" alt="夕食">
+        <img src="photos/光明院本堂にて精進料理の夕食12.jpg" alt="夕食">
         </div>
       </div>
     </div>
@@ -1692,33 +1698,19 @@
       <div class="spot">刺繍工房見学 <span class="tag">京繍伝統工芸士・長艸氏による実演解説</span><span class="tag">エルメスとのコラボレーション実績</span></div>
       <div class="spot">老舗エリア散策・お買い物</div>
       <div class="hotel">京都ホテル泊</div>
-    </div>
-    <div class="day-photos">
-      <div class="spot-carousel">
+      <div class="spot-grid">
         <div class="spot-label">清水寺特別拝観</div>
-        <div class="carousel" data-carousel>
-          <div class="slides">
-            <div class="slide"><img src="photos/清水寺VIP特別見学1v3.jpg" alt="清水寺VIP"></div>
-          </div>
-          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
-          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
-          <div class="dots"></div>
-          <div class="counter"></div>
+        <div class="photo-grid">
+        <img src="photos/清水寺VIP特別見学1v3.jpg" alt="清水寺VIP">
         </div>
       </div>
-      <div class="spot-carousel">
+      <div class="spot-grid">
         <div class="spot-label">刺繍工房見学（長艸氏・エルメスコラボ）</div>
-        <div class="carousel" data-carousel>
-          <div class="slides">
-            <div class="slide"><img src="photos/刺繍工房見学1.jpg" alt="刺繍工房"></div>
-            <div class="slide"><img src="photos/刺繍工房見学2.jpg" alt="刺繍工房"></div>
-            <div class="slide"><img src="photos/刺繍工房見学3.jpg" alt="刺繍工房"></div>
-            <div class="slide"><img src="photos/刺繍工房見学4.jpg" alt="刺繍工房"></div>
-          </div>
-          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
-          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
-          <div class="dots"></div>
-          <div class="counter"></div>
+        <div class="photo-grid">
+        <img src="photos/刺繍工房見学1.jpg" alt="刺繍工房">
+        <img src="photos/刺繍工房見学2.jpg" alt="刺繍工房">
+        <img src="photos/刺繍工房見学3.jpg" alt="刺繍工房">
+        <img src="photos/刺繍工房見学4.jpg" alt="刺繍工房">
         </div>
       </div>
     </div>
@@ -1735,37 +1727,23 @@
       <div class="spot">奈良公園 自由散策</div>
       <div class="spot">西大寺 大碗茶体験 <span class="tag">日本最大の茶碗による茶の湯</span></div>
       <div class="hotel">京都ホテル泊</div>
-    </div>
-    <div class="day-photos">
-      <div class="spot-carousel">
+      <div class="spot-grid">
         <div class="spot-label">東大寺と正倉院（元所長解説）</div>
-        <div class="carousel" data-carousel>
-          <div class="slides">
-            <div class="slide"><img src="photos/東大寺と正倉院1.jpg" alt="東大寺と正倉院"></div>
-            <div class="slide"><img src="photos/東大寺と正倉院2.jpg" alt="東大寺と正倉院"></div>
-            <div class="slide"><img src="photos/東大寺と正倉院3.jpg" alt="東大寺と正倉院"></div>
-            <div class="slide"><img src="photos/東大寺と正倉院4.jpg" alt="東大寺と正倉院"></div>
-            <div class="slide"><img src="photos/東大寺と正倉院5.jpg" alt="東大寺と正倉院"></div>
-          </div>
-          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
-          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
-          <div class="dots"></div>
-          <div class="counter"></div>
+        <div class="photo-grid">
+        <img src="photos/東大寺と正倉院1.jpg" alt="東大寺と正倉院">
+        <img src="photos/東大寺と正倉院2.jpg" alt="東大寺と正倉院">
+        <img src="photos/東大寺と正倉院3.jpg" alt="東大寺と正倉院">
+        <img src="photos/東大寺と正倉院4.jpg" alt="東大寺と正倉院">
+        <img src="photos/東大寺と正倉院5.jpg" alt="東大寺と正倉院">
         </div>
       </div>
-      <div class="spot-carousel">
+      <div class="spot-grid">
         <div class="spot-label">西大寺 大碗茶体験</div>
-        <div class="carousel" data-carousel>
-          <div class="slides">
-            <div class="slide"><img src="photos/大碗茶体験1.jpg" alt="大碗茶体験"></div>
-            <div class="slide"><img src="photos/大碗茶体験2.jpg" alt="大碗茶体験" style="object-position:center bottom;"></div>
-            <div class="slide"><img src="photos/大碗茶体験3.jpg" alt="大碗茶体験"></div>
-            <div class="slide"><img src="photos/大碗茶体験4.jpg" alt="大碗茶体験"></div>
-          </div>
-          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
-          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
-          <div class="dots"></div>
-          <div class="counter"></div>
+        <div class="photo-grid">
+        <img src="photos/大碗茶体験1.jpg" alt="大碗茶体験">
+        <img src="photos/大碗茶体験2.jpg" alt="大碗茶体験" style="object-position:center bottom;">
+        <img src="photos/大碗茶体験3.jpg" alt="大碗茶体験">
+        <img src="photos/大碗茶体験4.jpg" alt="大碗茶体験">
         </div>
       </div>
     </div>
@@ -1782,49 +1760,29 @@
       <div class="spot">白鬚神社 水中鳥居</div>
       <div class="spot">高村作 包丁工房見学 <span class="tag">nomaシェフ推奨・「グランメゾン東京」原型</span><span class="tag">お名前入りの包丁を手彫りで進呈・欧米ゲストから特に高い評価を得ている</span></div>
       <div class="hotel">望洋楼泊</div>
-    </div>
-    <div class="day-photos">
-      <div class="spot-carousel">
+      <div class="spot-grid">
         <div class="spot-label">琵琶湖テラス</div>
-        <div class="carousel" data-carousel>
-          <div class="slides">
-            <div class="slide"><img src="photos/琵琶湖テラス1.jpg" alt="琵琶湖テラス"></div>
-            <div class="slide"><img src="photos/琵琶湖テラス2.jpg" alt="琵琶湖テラス"></div>
-            <div class="slide"><img src="photos/琵琶湖テラス3.jpg" alt="琵琶湖テラス"></div>
-            <div class="slide"><img src="photos/琵琶湖テラス4.jpg" alt="琵琶湖テラス"></div>
-          </div>
-          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
-          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
-          <div class="dots"></div>
-          <div class="counter"></div>
+        <div class="photo-grid">
+        <img src="photos/琵琶湖テラス1.jpg" alt="琵琶湖テラス">
+        <img src="photos/琵琶湖テラス2.jpg" alt="琵琶湖テラス">
+        <img src="photos/琵琶湖テラス3.jpg" alt="琵琶湖テラス">
+        <img src="photos/琵琶湖テラス4.jpg" alt="琵琶湖テラス">
         </div>
       </div>
-      <div class="spot-carousel">
+      <div class="spot-grid">
         <div class="spot-label">白鬚神社 水中鳥居</div>
-        <div class="carousel" data-carousel>
-          <div class="slides">
-            <div class="slide"><img src="photos/白鬚神社 水中鳥居2.jpg" alt="白鬚神社水中鳥居"></div>
-            <div class="slide"><img src="photos/白鬚神社 水中鳥居_webp.jpg" alt="白鬚神社水中鳥居"></div>
-          </div>
-          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
-          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
-          <div class="dots"></div>
-          <div class="counter"></div>
+        <div class="photo-grid">
+        <img src="photos/白鬚神社 水中鳥居2.jpg" alt="白鬚神社水中鳥居">
+        <img src="photos/白鬚神社 水中鳥居_webp.jpg" alt="白鬚神社水中鳥居">
         </div>
       </div>
-      <div class="spot-carousel">
+      <div class="spot-grid">
         <div class="spot-label">高村作 包丁工房</div>
-        <div class="carousel" data-carousel>
-          <div class="slides">
-            <div class="slide"><img src="photos/高村作工房見学1.JPG" alt="高村作工房"></div>
-            <div class="slide"><img src="photos/高村作工房見学2.jpg" alt="高村作工房"></div>
-            <div class="slide"><img src="photos/高村作工房見学3.JPG" alt="高村作工房"></div>
-            <div class="slide"><img src="photos/高村作工房見学4.JPG" alt="高村作工房" style="object-position:center top;"></div>
-          </div>
-          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
-          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
-          <div class="dots"></div>
-          <div class="counter"></div>
+        <div class="photo-grid">
+        <img src="photos/高村作工房見学1.JPG" alt="高村作工房">
+        <img src="photos/高村作工房見学2.jpg" alt="高村作工房">
+        <img src="photos/高村作工房見学3.JPG" alt="高村作工房">
+        <img src="photos/高村作工房見学4.JPG" alt="高村作工房" style="object-position:center top;">
         </div>
       </div>
     </div>
@@ -1840,24 +1798,15 @@
       <div class="spot">永平寺特別拝観 <span class="tag">禅の本山・非公開エリア含む僧侶案内</span></div>
       <div class="spot">黒龍酒造 ESHIKOTO <span class="tag">非公開蔵見学</span><span class="tag">鮨さいとうコラボ特別ランチ</span><span class="tag">レア六種試飲・日本酒専門家解説</span></div>
       <div class="hotel">望洋楼泊</div>
-    </div>
-    <div class="day-photos">
-
-      <div class="spot-carousel">
+      <div class="spot-grid">
         <div class="spot-label">黒龍酒造 ESHIKOTO</div>
-        <div class="carousel" data-carousel>
-          <div class="slides">
-            <div class="slide"><img src="photos/黒龍酒造7.JPG" alt="黒龍酒造"></div>
-            <div class="slide"><img src="photos/黒龍酒造2.jpg" alt="黒龍酒造"></div>
-            <div class="slide"><img src="photos/黒龍酒造3.jpg" alt="黒龍酒造" style="object-position:center 40%;"></div>
-            <div class="slide"><img src="photos/黒龍酒造4.jpg" alt="黒龍酒造"></div>
-            <div class="slide"><img src="photos/黒龍酒造5.JPG" alt="黒龍酒造"></div>
-            <div class="slide"><img src="photos/黒龍酒造6.jpg" alt="黒龍酒造" style="object-position:center top;"></div>
-          </div>
-          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
-          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
-          <div class="dots"></div>
-          <div class="counter"></div>
+        <div class="photo-grid">
+        <img src="photos/黒龍酒造7.JPG" alt="黒龍酒造">
+        <img src="photos/黒龍酒造2.jpg" alt="黒龍酒造">
+        <img src="photos/黒龍酒造3.jpg" alt="黒龍酒造" style="object-position:center 40%;">
+        <img src="photos/黒龍酒造4.jpg" alt="黒龍酒造">
+        <img src="photos/黒龍酒造5.JPG" alt="黒龍酒造">
+        <img src="photos/黒龍酒造6.jpg" alt="黒龍酒造" style="object-position:center top;">
         </div>
       </div>
     </div>
@@ -1875,32 +1824,18 @@
       <div class="spot">鈴木大拙館</div>
       <div class="spot">新幹線で東京へ</div>
       <div class="hotel">東京市内ホテル泊</div>
-    </div>
-    <div class="day-photos">
-      <div class="spot-carousel">
+      <div class="spot-grid">
         <div class="spot-label">弓道体験</div>
-        <div class="carousel" data-carousel>
-          <div class="slides">
-            <div class="slide"><img src="photos/弓道体験1.jpg" alt="弓道体験"></div>
-            <div class="slide"><img src="photos/弓道体験2.jpg" alt="弓道体験"></div>
-          </div>
-          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
-          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
-          <div class="dots"></div>
-          <div class="counter"></div>
+        <div class="photo-grid">
+        <img src="photos/弓道体験1.jpg" alt="弓道体験">
+        <img src="photos/弓道体験2.jpg" alt="弓道体験">
         </div>
       </div>
-      <div class="spot-carousel">
+      <div class="spot-grid">
         <div class="spot-label">鈴木大拙館</div>
-        <div class="carousel" data-carousel>
-          <div class="slides">
-            <div class="slide"><img src="photos/鈴木大拙館１.jpg" alt="鈴木大拙館"></div>
-            <div class="slide"><img src="photos/鈴木大拙館2.jpg" alt="鈴木大拙館"></div>
-          </div>
-          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
-          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
-          <div class="dots"></div>
-          <div class="counter"></div>
+        <div class="photo-grid">
+        <img src="photos/鈴木大拙館１.jpg" alt="鈴木大拙館">
+        <img src="photos/鈴木大拙館2.jpg" alt="鈴木大拙館">
         </div>
       </div>
     </div>
@@ -1917,37 +1852,22 @@
       <div class="spot">着物体験 <span class="tag">ドラマ御用達ブランド</span></div>
       <div class="spot">浅草にて人力車体験</div>
       <div class="hotel">東京市内ホテル泊</div>
-    </div>
-    <div class="day-photos">
-      <div class="spot-carousel">
+      <div class="spot-grid">
         <div class="spot-label">東京国立博物館特別拝観</div>
-        <div class="carousel" data-carousel>
-          <div class="slides">
-            <div class="slide"><img src="photos/東京国立博物館特別拝観2.jpg" alt="東京国立博物館"></div>
-            <div class="slide"><img src="photos/東京国立博物館特別拝観1.jpg" alt="東京国立博物館"></div>
-            <div class="slide"><img src="photos/東京国立博物館特別拝観3.jpg" alt="東京国立博物館"></div>
-            <div class="slide"><img src="photos/東京国立博物館特別拝観4.jpg" alt="東京国立博物館"></div>
-            <div class="slide"><img src="photos/東京国立博物館特別拝観5.jpg" alt="東京国立博物館"></div>
-          </div>
-          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
-          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
-          <div class="dots"></div>
-          <div class="counter"></div>
+        <div class="photo-grid">
+        <img src="photos/東京国立博物館特別拝観2.jpg" alt="東京国立博物館">
+        <img src="photos/東京国立博物館特別拝観1.jpg" alt="東京国立博物館">
+        <img src="photos/東京国立博物館特別拝観3.jpg" alt="東京国立博物館">
+        <img src="photos/東京国立博物館特別拝観4.jpg" alt="東京国立博物館">
+        <img src="photos/東京国立博物館特別拝観5.jpg" alt="東京国立博物館">
         </div>
       </div>
-      <div class="spot-carousel">
+      <div class="spot-grid">
         <div class="spot-label">着物体験</div>
-        <div class="carousel" data-carousel>
-          <div class="slides">
-            <div class="slide"><img src="photos/浅草着物体験3.jpg" alt="浅草着物体験"></div>
-          </div>
-          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
-          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
-          <div class="dots"></div>
-          <div class="counter"></div>
+        <div class="photo-grid">
+        <img src="photos/浅草着物体験3.jpg" alt="浅草着物体験">
         </div>
       </div>
-
     </div>
   </div>
 
@@ -1962,39 +1882,24 @@
       <div class="spot">築地にて寿司作り体験</div>
       <div class="spot">ヴィンテージ専門バイヤー同行ショッピング</div>
       <div class="hotel">東京市内ホテル泊</div>
-    </div>
-    <div class="day-photos">
-      <div class="spot-carousel">
+      <div class="spot-grid">
         <div class="spot-label">六本木 磁器倶楽部</div>
-        <div class="carousel" data-carousel>
-          <div class="slides">
-            <div class="slide"><img src="photos/六本木磁器倶楽部1.jpg" alt="六本木 磁器倶楽部" style="object-fit:contain;background:#f5f2ec;"></div>
-            <div class="slide"><img src="photos/六本木磁器倶楽部2.jpg" alt="六本木 磁器倶楽部" style="object-fit:cover;object-position:center center;"></div>
-            <div class="slide"><img src="photos/六本木磁器倶楽部4.jpg" alt="六本木 磁器倶楽部"></div>
-            <div class="slide"><img src="photos/六本木磁器倶楽部5.jpg" alt="六本木 磁器倶楽部"></div>
-          </div>
-          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
-          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
-          <div class="dots"></div>
-          <div class="counter"></div>
+        <div class="photo-grid">
+        <img src="photos/六本木磁器倶楽部1.jpg" alt="六本木 磁器倶楽部" style="object-fit:contain;background:#f5f2ec;">
+        <img src="photos/六本木磁器倶楽部2.jpg" alt="六本木 磁器倶楽部" style="object-fit:cover;object-position:center center;">
+        <img src="photos/六本木磁器倶楽部4.jpg" alt="六本木 磁器倶楽部">
+        <img src="photos/六本木磁器倶楽部5.jpg" alt="六本木 磁器倶楽部">
         </div>
       </div>
-      <div class="spot-carousel">
+      <div class="spot-grid">
         <div class="spot-label">築地にて寿司作り体験</div>
-        <div class="carousel" data-carousel>
-          <div class="slides">
-            <div class="slide"><img src="photos/築地にて寿司作り体験3.JPG" alt="玉すし本店 寿司作り体験"></div>
-            <div class="slide"><img src="photos/築地にて寿司作り体験2.JPG" alt="玉すし本店 寿司作り体験"></div>
-            <div class="slide"><img src="photos/築地にて寿司作り体験1.JPG" alt="玉すし本店 寿司作り体験"></div>
-            <div class="slide"><img src="photos/築地にて寿司作り体験4.JPG" alt="玉すし本店 寿司作り体験"></div>
-          </div>
-          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
-          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
-          <div class="dots"></div>
-          <div class="counter"></div>
+        <div class="photo-grid">
+        <img src="photos/築地にて寿司作り体験3.JPG" alt="玉すし本店 寿司作り体験">
+        <img src="photos/築地にて寿司作り体験2.JPG" alt="玉すし本店 寿司作り体験">
+        <img src="photos/築地にて寿司作り体験1.JPG" alt="玉すし本店 寿司作り体験">
+        <img src="photos/築地にて寿司作り体験4.JPG" alt="玉すし本店 寿司作り体験">
         </div>
       </div>
-
     </div>
   </div>
 
