@@ -22,7 +22,7 @@
 
   /* ── Container ── */
   .page {
-    max-width: 100%;
+    max-width: 960px;
     margin: 0 auto;
     padding: 0 48px 120px;
   }
@@ -148,14 +148,15 @@
 
   /* ── Highlight Box ── */
   .highlight-box {
-    background: rgba(184,149,90,0.06);
-    border-left: 2px solid #b8945a;
-    padding: 20px 24px;
+    background: rgba(184,149,90,0.12);
+    border-left: 6px solid #b8945a;
+    padding: 24px 28px;
     margin: 20px 0;
-    font-size: 14px;
-    letter-spacing: 1px;
-    color: #5a4a3a;
-    line-height: 1.8;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    color: #4a3a2a;
+    line-height: 2;
   }
 
   /* ── Vehicle Cards Grid ── */
@@ -630,7 +631,7 @@
     line-height: 1.8;
   }
 
-  /* ── K-LINK screenshots ── */
+  /* ── K-Link screenshots ── */
   .klink-row {
     display: flex;
     gap: 16px;
@@ -871,17 +872,17 @@
       height: auto !important;
     }
 
-    /* Section 06: K-LINK — stack vertically */
-    .section [style*="display:flex;align-items:center;justify-content:center;gap:60px"] {
+    /* Section 06: K-Link — stack vertically */
+    .section [style*="display:flex;align-items:center;justify-content:center;gap:36px"] {
       flex-direction: column !important;
       gap: 24px !important;
     }
-    .section [style*="display:flex;align-items:center;justify-content:center;gap:60px"] [style*="min-width:280px;max-width:360px"] {
+    .section [style*="display:flex;align-items:center;justify-content:center;gap:36px"] [style*="min-width:280px;max-width:360px"] {
       min-width: unset !important;
       max-width: 100% !important;
       width: 100% !important;
     }
-    .section [style*="display:flex;align-items:center;justify-content:center;gap:60px"] img {
+    .section [style*="display:flex;align-items:center;justify-content:center;gap:36px"] img {
       width: 220px !important;
     }
 
@@ -898,8 +899,9 @@
 
     /* Highlight box */
     .highlight-box {
-      padding: 16px 18px;
-      font-size: 13px;
+      padding: 18px 20px;
+      font-size: 15px;
+      border-left-width: 5px;
     }
 
     /* Stat row */
@@ -951,34 +953,6 @@
       min-width: unset !important;
     }
   }
-
-  /* ── 大屏投影/演讲用 ── */
-  @media (min-width: 1200px) {
-    html {
-      font-size: 1.3em;
-    }
-    /* 照片全部放大 */
-    .vehicle-card .photo-area {
-      height: 600px;
-    }
-    .carousel .slide img {
-      height: 70vh;
-    }
-    .section img {
-      max-width: 100%;
-    }
-  }
-  @media (min-width: 1800px) {
-    html {
-      font-size: 1.5em;
-    }
-    .vehicle-card .photo-area {
-      height: 800px;
-    }
-    .carousel .slide img {
-      height: 80vh;
-    }
-  }
 </style>
 </head>
 <body>
@@ -1004,7 +978,7 @@
 <div class="section">
   <div class="section-title">
     <span class="num">01</span>
-    <h3>羽田空港営業所</h3>
+    <h3>羽田空港から10分</h3>
   </div>
   <ul class="bullet-list">
     <li>本社：東京都大田区羽田五丁目3番1号</li>
@@ -1013,10 +987,10 @@
   </ul>
   <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:20px;">
     <div style="flex:1;min-width:280px;overflow:hidden;border:1px solid rgba(0,0,0,0.06);">
-      <img src="photos/本社ビル外観.jpg" alt="本社ビル" style="width:100%;height:auto;object-fit:contain;display:block;">
+      <img src="photos/本社ビル外観.png" alt="本社ビル" style="width:100%;height:240px;object-fit:cover;display:block;">
     </div>
     <div style="flex:1;min-width:280px;overflow:hidden;border:1px solid rgba(0,0,0,0.06);">
-      <img src="photos/車庫.jpg" alt="車庫" style="width:100%;height:240px;object-fit:cover;display:block;">
+      <img src="photos/車庫.png" alt="車庫" style="width:100%;height:240px;object-fit:cover;display:block;">
     </div>
   </div>
 </div>
@@ -1111,11 +1085,11 @@
   <!-- タオル & ギフトボックス（大・2列・実写） -->
   <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-bottom:36px;">
     <div style="text-align:center;">
-      <img src="photos/タオル実写.jpg" alt="タオル" style="width:100%;height:300px;object-fit:cover;border-radius:8px;">
+      <img src="photos/タオル実写.png" alt="タオル" style="width:100%;height:280px;object-fit:cover;border-radius:8px;">
       <div style="font-size:1rem;margin-top:12px;font-weight:500;">タオルサービス</div>
     </div>
     <div style="text-align:center;">
-      <img src="photos/ギフトボックス実写.jpg" alt="ギフトボックス" style="width:100%;height:300px;object-fit:cover;border-radius:8px;">
+      <img src="photos/ギフトボックス実写.png" alt="ギフトボックス" style="width:100%;height:280px;object-fit:cover;border-radius:8px;">
       <div style="font-size:1rem;margin-top:12px;font-weight:500;">ギフトボックス</div>
       <div style="font-size:0.85rem;color:#b8945a;">¥6,500～</div>
     </div>
@@ -1124,28 +1098,28 @@
   <!-- 残り6個（3列・大きめ） -->
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
     <div style="text-align:center;">
-      <img src="photos/img-amenities-02.jpg" alt="ミネラルウォーター" style="width:160px;height:160px;object-fit:contain;">
+      <img src="photos/img-amenities-02.png" alt="ミネラルウォーター" style="width:160px;height:160px;object-fit:contain;">
       <div style="font-size:0.9rem;margin-top:10px;">紙ミネラルウォーター</div>
     </div>
     <div style="text-align:center;">
-      <img src="photos/img-amenities-04.jpg" alt="ミニ冷蔵庫" style="width:160px;height:160px;object-fit:contain;">
+      <img src="photos/img-amenities-04.png" alt="ミニ冷蔵庫" style="width:160px;height:160px;object-fit:contain;">
       <div style="font-size:0.9rem;margin-top:10px;">ミニ冷蔵庫</div>
     </div>
     <div style="text-align:center;">
-      <img src="photos/img-amenities-05.jpg" alt="チャイルドシート" style="width:160px;height:160px;object-fit:contain;">
+      <img src="photos/img-amenities-05.png" alt="チャイルドシート" style="width:160px;height:160px;object-fit:contain;">
       <div style="font-size:0.9rem;margin-top:10px;">チャイルドシート</div>
     </div>
     <div style="text-align:center;">
-      <img src="photos/img-amenities-06.jpg" alt="踏み台" style="width:160px;height:160px;object-fit:contain;">
+      <img src="photos/img-amenities-06.png" alt="踏み台" style="width:160px;height:160px;object-fit:contain;">
       <div style="font-size:0.9rem;margin-top:10px;">踏み台</div>
     </div>
     <div style="text-align:center;">
-      <img src="photos/img-amenities-08.jpg" alt="車椅子" style="width:160px;height:160px;object-fit:contain;">
+      <img src="photos/img-amenities-08.png" alt="車椅子" style="width:160px;height:160px;object-fit:contain;">
       <div style="font-size:0.9rem;margin-top:10px;">車椅子</div>
       <div style="font-size:0.8rem;color:#b8945a;">¥3,300～</div>
     </div>
     <div style="text-align:center;">
-      <img src="photos/img-amenities-09.jpg" alt="ポケットWiFi" style="width:160px;height:160px;object-fit:contain;">
+      <img src="photos/img-amenities-09.png" alt="ポケットWiFi" style="width:160px;height:160px;object-fit:contain;">
       <div style="font-size:0.9rem;margin-top:10px;">ポケットWiFi</div>
       <div style="font-size:0.8rem;color:#b8945a;">¥1,100～/日</div>
     </div>
@@ -1189,29 +1163,29 @@
   <div class="driver-section">
 
       <div class="d-card">
-        <div class="d-title">元俳優のドライバー</div>
+        <div class="d-title">元・俳優ドライバー</div>
         <!-- Before → After + 右側テキスト -->
         <div style="display:flex;justify-content:center;align-items:center;gap:0;flex-wrap:wrap;">
           <!-- 写真エリア -->
           <div style="display:flex;align-items:center;gap:12px;flex-shrink:0;">
             <div style="text-align:center;">
-              <img src="photos/driver-yamamoto-before.jpg" alt="Before" style="width:500px;height:750px;object-fit:cover;border-radius:8px;">
+              <img src="photos/driver-yamamoto-before.png" alt="Before" style="width:200px;height:300px;object-fit:cover;border-radius:8px;">
               <div style="font-size:0.85rem;font-weight:600;color:#999;margin-top:6px;">BEFORE</div>
             </div>
             <div style="font-size:1.8rem;color:#b8945a;">→</div>
             <div style="text-align:center;position:relative;">
               <div style="position:absolute;top:-6px;left:-6px;right:-6px;bottom:-6px;border-radius:10px;background:linear-gradient(135deg,#f5e6c8,#b8945a,#f5e6c8,#b8945a);background-size:300% 300%;animation:shimmer 2s ease infinite;box-shadow:0 0 20px rgba(184,148,90,0.5),0 0 50px rgba(184,148,90,0.2);z-index:0;"></div>
               <style>@keyframes shimmer{0%{background-position:0% 50%;box-shadow:0 0 20px rgba(184,148,90,0.5),0 0 50px rgba(184,148,90,0.2)}50%{background-position:100% 50%;box-shadow:0 0 40px rgba(184,148,90,0.8),0 0 80px rgba(255,215,0,0.4)}100%{background-position:0% 50%;box-shadow:0 0 20px rgba(184,148,90,0.5),0 0 50px rgba(184,148,90,0.2)}}@keyframes glow-pulse{0%{filter:brightness(1.15) contrast(1.05);box-shadow:0 0 30px rgba(255,255,255,0.6),0 0 60px rgba(184,148,90,0.3)}50%{filter:brightness(1.25) contrast(1.08);box-shadow:0 0 50px rgba(255,255,255,0.8),0 0 100px rgba(255,215,0,0.5)}100%{filter:brightness(1.15) contrast(1.05);box-shadow:0 0 30px rgba(255,255,255,0.6),0 0 60px rgba(184,148,90,0.3)}}</style>
-              <img src="photos/driver-yamamoto-after.jpg" alt="After" style="width:500px;height:750px;object-fit:cover;border-radius:8px;position:relative;z-index:1;filter:brightness(1.2) contrast(1.05);box-shadow:0 0 40px rgba(255,255,255,0.8),0 0 80px rgba(255,215,0,0.4);animation:glow-pulse 1.5s ease infinite;">
+              <img src="photos/driver-yamamoto-after.png" alt="After" style="width:200px;height:300px;object-fit:cover;border-radius:8px;position:relative;z-index:1;filter:brightness(1.2) contrast(1.05);box-shadow:0 0 40px rgba(255,255,255,0.8),0 0 80px rgba(255,215,0,0.4);animation:glow-pulse 1.5s ease infinite;">
               <div style="font-size:0.85rem;font-weight:600;color:#b8945a;margin-top:6px;">AFTER</div>
             </div>
           </div>
           <!-- テキストエリア -->
           <div style="text-align:left;margin-left:60px;max-width:300px;">
             <div style="font-weight:700;font-size:1.3rem;margin-bottom:12px;">山本 真敬｜41歳｜大阪出身</div>
-            <div style="font-size:15px;letter-spacing:1px;color:#4a4038;line-height:1.8;">
-              <div style="margin-bottom:8px;"><strong>お客様によく言われること</strong><br>「運転が上手い」<br>「落ち着いている」</div>
-              <div style="margin-bottom:8px;"><strong>この仕事で好きな瞬間</strong><br>「ありがとう」と言って握手していただけたとき<br>「日本は素晴らしい国ですね」と言ってもらえるとき</div>
+            <div style="font-size:0.88rem;color:#333;line-height:1.8;">
+              <div style="margin-bottom:8px;"><strong>お客様によく言われる事</strong><br>「運転が上手い」<br>「落ち着いている」</div>
+              <div style="margin-bottom:8px;"><strong>この仕事で好きな瞬間</strong><br>「ありがとう」と笑顔で握手される時<br>「日本は最高にいい国」と言ってもらえる時</div>
               <div><strong>東京の好きな場所</strong><br>東京タワー・銀座・二子玉川・豊洲</div>
             </div>
           </div>
@@ -1219,51 +1193,51 @@
 
       </div>
       <div class="d-card">
-        <div class="d-title">元船舶操縦士のドライバー</div>
+        <div class="d-title">元・船舶操縦士ドライバー</div>
         <div style="display:flex;justify-content:center;align-items:center;gap:0;flex-wrap:wrap;">
           <div style="display:flex;align-items:center;gap:12px;flex-shrink:0;">
             <div style="text-align:center;">
-              <img src="photos/driver-ship.jpg" alt="Before" style="width:500px;height:750px;object-fit:cover;border-radius:8px;">
+              <img src="photos/driver-ship.jpg" alt="Before" style="width:200px;height:300px;object-fit:cover;border-radius:8px;">
               <div style="font-size:0.85rem;font-weight:600;color:#999;margin-top:6px;">BEFORE</div>
             </div>
             <div style="font-size:1.8rem;color:#b8945a;">→</div>
             <div style="text-align:center;position:relative;">
               <div style="position:absolute;top:-6px;left:-6px;right:-6px;bottom:-6px;border-radius:10px;background:linear-gradient(135deg,#f5e6c8,#b8945a,#f5e6c8,#b8945a);background-size:300% 300%;animation:shimmer 2s ease infinite;box-shadow:0 0 20px rgba(184,148,90,0.5),0 0 50px rgba(184,148,90,0.2);z-index:0;"></div>
-              <img src="photos/driver-kusuda-after.jpg" alt="After" style="width:500px;height:750px;object-fit:cover;border-radius:8px;position:relative;z-index:1;filter:brightness(1.2) contrast(1.05);box-shadow:0 0 40px rgba(255,255,255,0.8),0 0 80px rgba(255,215,0,0.4);animation:glow-pulse 1.5s ease infinite;">
+              <img src="photos/driver-ship.jpg" alt="After" style="width:200px;height:300px;object-fit:cover;border-radius:8px;position:relative;z-index:1;filter:brightness(1.2) contrast(1.05);box-shadow:0 0 40px rgba(255,255,255,0.8),0 0 80px rgba(255,215,0,0.4);animation:glow-pulse 1.5s ease infinite;">
               <div style="font-size:0.85rem;font-weight:600;color:#b8945a;margin-top:6px;">AFTER</div>
             </div>
           </div>
           <div style="text-align:left;margin-left:60px;max-width:300px;">
-            <div style="font-weight:700;font-size:1.3rem;margin-bottom:12px;">楠田 恭子｜30歳｜佐賀県出身 <span style="display:inline-block;background:#b8945a;color:#fff;font-size:0.7rem;padding:2px 8px;border-radius:4px;margin-left:6px;vertical-align:middle;">英語対応可</span></div>
-            <div style="font-size:15px;letter-spacing:1px;color:#4a4038;line-height:1.8;">
-              <div style="margin-bottom:8px;"><strong>お客様によく言われること</strong><br>「英語がお上手ですね」<br>「運転がうまいね！」</div>
-              <div style="margin-bottom:8px;"><strong>この仕事で好きな瞬間</strong><br>お客様から「ありがとう」と言って握手していただけたとき<br>お客様が笑顔で車を降りられたとき</div>
+            <div style="font-weight:700;font-size:1.3rem;margin-bottom:12px;">楠田 恭子｜30歳｜佐賀県出身 <span style="display:inline-block;background:#b8945a;color:#fff;font-size:0.7rem;padding:2px 8px;border-radius:4px;margin-left:6px;vertical-align:middle;">English</span></div>
+            <div style="font-size:0.88rem;color:#333;line-height:1.8;">
+              <div style="margin-bottom:8px;"><strong>お客様によく言われること</strong><br>「英語が上手ね〜」<br>「運転がうまいね！」</div>
+              <div style="margin-bottom:8px;"><strong>この仕事で好きな瞬間</strong><br>お客様から「ありがとう」と握手して下さったとき<br>お客様が笑顔で車を降りられたとき</div>
               <div><strong>東京の好きな場所</strong><br>レインボーブリッジ（橋から見える海の景色）</div>
             </div>
           </div>
         </div>
       </div>
       <div class="d-card">
-        <div class="d-title">元アパレル販売員のドライバー</div>
+        <div class="d-title">元アパレル店員ドライバー</div>
         <div style="display:flex;justify-content:center;align-items:center;gap:0;flex-wrap:wrap;">
           <div style="display:flex;align-items:center;gap:12px;flex-shrink:0;">
             <div style="text-align:center;">
-              <img src="photos/driver-fujino.jpg" alt="Before" style="width:500px;height:750px;object-fit:cover;border-radius:8px;">
+              <img src="photos/driver-fujino.jpg" alt="Before" style="width:200px;height:300px;object-fit:cover;border-radius:8px;">
               <div style="font-size:0.85rem;font-weight:600;color:#999;margin-top:6px;">BEFORE</div>
             </div>
             <div style="font-size:1.8rem;color:#b8945a;">→</div>
             <div style="text-align:center;position:relative;">
               <div style="position:absolute;top:-6px;left:-6px;right:-6px;bottom:-6px;border-radius:10px;background:linear-gradient(135deg,#f5e6c8,#b8945a,#f5e6c8,#b8945a);background-size:300% 300%;animation:shimmer 2s ease infinite;box-shadow:0 0 20px rgba(184,148,90,0.5),0 0 50px rgba(184,148,90,0.2);z-index:0;"></div>
-              <img src="photos/driver-fujino-after.jpg" alt="After" style="width:500px;height:750px;object-fit:cover;border-radius:8px;position:relative;z-index:1;filter:brightness(1.2) contrast(1.05);box-shadow:0 0 40px rgba(255,255,255,0.8),0 0 80px rgba(255,215,0,0.4);animation:glow-pulse 1.5s ease infinite;">
+              <img src="photos/driver-fujino.jpg" alt="After" style="width:200px;height:300px;object-fit:cover;border-radius:8px;position:relative;z-index:1;filter:brightness(1.2) contrast(1.05);box-shadow:0 0 40px rgba(255,255,255,0.8),0 0 80px rgba(255,215,0,0.4);animation:glow-pulse 1.5s ease infinite;">
               <div style="font-size:0.85rem;font-weight:600;color:#b8945a;margin-top:6px;">AFTER</div>
             </div>
           </div>
           <div style="text-align:left;margin-left:60px;max-width:300px;">
-            <div style="font-weight:700;font-size:1.3rem;margin-bottom:12px;">藤野 浩幹｜29歳｜埼玉出身 <span style="display:inline-block;background:#b8945a;color:#fff;font-size:0.7rem;padding:2px 8px;border-radius:4px;margin-left:6px;vertical-align:middle;">英語対応可</span></div>
-            <div style="font-size:15px;letter-spacing:1px;color:#4a4038;line-height:1.8;">
-              <div style="margin-bottom:8px;"><strong>お客様によく言われること</strong><br>「運転が上手い」「紳士的で親切だった」<br>「英語で対応してもらえて助かった」「車内が綺麗でリラックスできた」</div>
-              <div style="margin-bottom:8px;"><strong>この仕事で好きな瞬間</strong><br>「また東京に来たら運転してほしい」と言われたとき<br>初めての場所でお客様と一緒に感動できたとき<br>自分の語学力や気遣いを褒められたとき</div>
-              <div><strong>東京の好きな場所</strong><br>渋谷・原宿——ファッションやグルメの最先端が集まる街</div>
+            <div style="font-weight:700;font-size:1.3rem;margin-bottom:12px;">藤野 浩幹｜29歳｜埼玉出身 <span style="display:inline-block;background:#b8945a;color:#fff;font-size:0.7rem;padding:2px 8px;border-radius:4px;margin-left:6px;vertical-align:middle;">English</span></div>
+            <div style="font-size:0.88rem;color:#333;line-height:1.8;">
+              <div style="margin-bottom:8px;"><strong>お客様によく言われる事</strong><br>「運転が上手い」「紳士的で親切だった」<br>「英語を話せて助かった」「車内が綺麗でリラックスできた」</div>
+              <div style="margin-bottom:8px;"><strong>この仕事で好きな瞬間</strong><br>「また東京に来たら運転して欲しい」と言われた時<br>初めての場所でお客様と一緒に感動できた時<br>自分の語学力や気遣いを褒められた時</div>
+              <div><strong>東京の好きな場所</strong><br>渋谷・原宿——洋服や食べ物の最先端が集まる街</div>
             </div>
           </div>
         </div>
@@ -1272,47 +1246,39 @@
   </div>
 </div>
 
-<!-- Section 5: 研修と教育 -->
+<!-- Section 5: 研修と共有 -->
 <div class="section">
   <div class="section-title">
     <span class="num">05</span>
-    <h3>研修と教育</h3>
+    <h3>研修と共有</h3>
   </div>
-  <p style="font-size:15px;letter-spacing:1px;color:#4a4038;margin-bottom:24px;line-height:1.8;">ホテルコンシェルジュの方々からサービス研修を受け、ホテルならではのおもてなしを学ぶとともに、ホテルサービスへの理解も深まりました。</p>
+  <p style="font-size:1.1rem;color:#333;margin-bottom:24px;">ホテルコンシェルジュからサービス研修</p>
   <div style="text-align:center;margin-bottom:40px;">
     <img src="photos/kenshu.jpg" alt="研修写真" style="width:100%;max-width:600px;height:400px;object-fit:cover;border-radius:12px;">
-    <img src="photos/kenshu2.jpg" alt="研修写真2" style="width:100%;max-width:600px;height:400px;object-fit:cover;border-radius:12px;margin-top:16px;">
   </div>
 
   <div style="margin-top:32px;border-top:1px solid #e8e4df;padding-top:32px;">
-    <h4 style="font-size:1.2rem;color:#1a1a1a;margin-bottom:12px;">〜LINEグループ投稿 Best Award〜</h4>
-    <p style="font-size:15px;letter-spacing:1px;color:#4a4038;margin-bottom:20px;line-height:1.9;">乗務で忙しい日々の中、ドライバー同士が顔を合わせる時間が少ないため、毎年実施している社内表弰制度です。<br>現場で得た最新の観光情報や交通情報、お客様対応の工夫などをLINEグループで積極的に共有してもらい、ドライバー同士の交流や情報共有を促進しています。<br>年末には全員で投票を行い、Best Award受賞者には賞金20万円を贈呈しています。</p>
+    <h4 style="font-size:1.2rem;color:#1a1a1a;margin-bottom:8px;">KINOKO LINE発信の Best Award 2026</h4>
+    <p style="font-size:0.95rem;color:#555;margin-bottom:20px;">社内でドライバーが外部の有用情報を共有する制度</p>
     <div style="display:flex;gap:16px;justify-content:center;">
       <img src="photos/line-share-1.jpg" alt="LINE共有例" style="width:280px;height:500px;object-fit:cover;border-radius:12px;">
       <img src="photos/line-share-2.jpg" alt="LINE共有例" style="width:280px;height:500px;object-fit:cover;border-radius:12px;">
-      <img src="photos/line-share-3.jpg" alt="LINE共有例" style="width:280px;height:500px;object-fit:cover;border-radius:12px;">
-      <img src="photos/line-share-4.jpg" alt="LINE共有例" style="width:280px;height:500px;object-fit:cover;border-radius:12px;">
-      <img src="photos/line-share-5.jpg" alt="LINE共有例" style="width:280px;height:500px;object-fit:cover;border-radius:12px;">
-      <img src="photos/line-share-6.jpg" alt="LINE共有例" style="width:280px;height:500px;object-fit:cover;border-radius:12px;">
-      <img src="photos/line-share-7.jpg" alt="LINE共有例" style="width:280px;height:500px;object-fit:cover;border-radius:12px;">
-      <img src="photos/line-share-8.jpg" alt="LINE共有例" style="width:280px;height:500px;object-fit:cover;border-radius:12px;">
-      <img src="photos/line-share-9.jpg" alt="LINE共有例" style="width:280px;height:500px;object-fit:cover;border-radius:12px;">
     </div>
   </div>
 </div>
 
 
 
-<!-- Section 6: K-LINK -->
+<!-- Section 6: K-Link -->
 <div class="section">
   <div class="section-title">
     <span class="num">06</span>
-    <h3>K-LINK 自社配車システム</h3>
+    <h3>K-Link 自社配車システム</h3>
   </div>
-  <p style="font-size:15px;letter-spacing:1px;color:#4a4038;margin-top:16px;">ドライバーがスマートフォンで「出発」「終了」をタップするだけで、乗車・降車報告が自動でコンシェルジュへ通知されます。<br>現場状況をリアルタイムで共有することで、情報の透明化とスムーズな連携を実現しています。</p>
+  <p style="font-size:1.1rem;color:#333;margin-top:16px;">ドライバーがスマホで「出発」「終了」をタップ → 乗車・降車報告が自動でコンシェルジュへ通知</p>
   <div style="display:flex;align-items:stretch;justify-content:center;gap:36px;margin-top:32px;flex-wrap:wrap;">
     <!-- 左: 構成図 -->
-    <div style="min-width:360px;max-width:500px;display:flex;flex-direction:column;justify-content:space-between;">
+    <div style="min-width:280px;max-width:360px;display:flex;flex-direction:column;justify-content:space-between;">
       <div style="display:flex;flex-direction:column;align-items:center;justify-content:space-between;height:100%;">
         <div style="background:#f5f2ec;border:2px solid #b8945a;border-radius:10px;padding:20px 24px;text-align:center;width:100%;">
           <div style="font-weight:700;font-size:1.1rem;">🏢 オフィス</div>
@@ -1320,7 +1286,7 @@
         </div>
         <div style="font-size:1.5rem;color:#b8945a;padding:8px 0;">↓</div>
         <div style="background:#b8945a;color:#fff;border-radius:10px;padding:24px 24px;text-align:center;width:100%;">
-          <div style="font-weight:700;font-size:1.4rem;">K-LINK</div>
+          <div style="font-weight:700;font-size:1.4rem;">K-Link</div>
           <div style="font-size:0.85rem;margin-top:6px;">リアルタイム同期</div>
         </div>
         <div style="font-size:1.5rem;color:#b8945a;padding:8px 0;">↓</div>
@@ -1337,8 +1303,8 @@
     </div>
     <!-- 右: 自動通知メール -->
     <div style="flex-shrink:0;display:flex;flex-direction:column;gap:16px;align-items:center;">
-      <img src="photos/klink-email-pickup.jpg" alt="乗車通知" style="width:420px;border-radius:12px;box-shadow:0 2px 16px rgba(0,0,0,0.1);">
-      <img src="photos/klink-email-dropoff.jpg" alt="降車通知" style="width:420px;border-radius:12px;box-shadow:0 2px 16px rgba(0,0,0,0.1);">
+      <img src="photos/klink-email-pickup.png" alt="乗車通知" style="width:280px;border-radius:12px;box-shadow:0 2px 16px rgba(0,0,0,0.1);">
+      <img src="photos/klink-email-dropoff.png" alt="降車通知" style="width:280px;border-radius:12px;box-shadow:0 2px 16px rgba(0,0,0,0.1);">
     </div>
   </div>
 
@@ -1359,5 +1325,522 @@
   </div>
   </div>
 </div>
+
+<!-- ════════════════ PART 2 ════════════════ -->
+<div class="part-divider">
+  <span class="line"></span>
+  <span class="part-num">PART 2</span>
+  <h2>DMC事業</h2>
+  <div class="part-sub">Kinoko Club Concierge</div>
+</div>
+
+<!-- Section 8: DMCチーム -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">06</span>
+    <h3>DMC チーム</h3>
+  </div>
+
+  <div class="office-card">
+    <div class="map-placeholder">[写真: オフィス外観]</div>
+    <div class="office-info">
+      <div class="office-name">Kinoko Club Concierge</div>
+      <div class="office-addr">東京都中央区築地一丁目13番地10<br>サクセス銀座東ビル6階</div>
+      <div class="office-detail">
+        少人数・富裕層特化<br>
+        11年の実績、ラグジュアリー旅行専門
+      </div>
+    </div>
+  </div>
+
+  <div class="team-grid">
+    <div class="team-chip">中国 3名</div>
+    <div class="team-chip">フランス 2名</div>
+    <div class="team-chip">シンガポール 1名</div>
+    <div class="team-chip">日本 2名</div>
+  </div>
+  <div style="font-size:13px;letter-spacing:1px;color:#8a7a6a;">計8名の多国籍チーム</div>
+</div>
+
+<!-- Section 9: プレミアム9日間行程 -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">07</span>
+    <h3>プレミアム9日間行程</h3>
+  </div>
+
+  <!-- ── DAY 1 ── -->
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-num">DAY 1</span>
+      <span class="day-route">関西空港 → 京都</span>
+    </div>
+    <div class="day-body">
+      <div class="spot">関西国際空港 VIP入国サービス</div>
+      <div class="spot">光明院にて茶道体験 <span class="tag">非公開・特別手配</span></div>
+      <div class="spot">光明院本堂にて精進料理の夕食 <span class="tag">僧侶が給仕・京芸妓による舞の披露</span></div>
+      <div class="hotel">京都ホテル泊</div>
+    </div>
+    <div class="day-photos">
+
+      <div class="spot-carousel">
+        <div class="spot-label">光明院にて茶道体験</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/光明院にて茶道体験1.jpg" alt="茶道体験" style="object-fit:contain;width:100%;height:auto;aspect-ratio:3/4;background:#f5f2ec;"></div>
+            <div class="slide"><img src="photos/光明院にて茶道体験2.jpg" alt="茶道体験" style="object-fit:contain;width:100%;height:auto;aspect-ratio:3/4;background:#f5f2ec;"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
+          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+      <div class="spot-carousel">
+        <div class="spot-label">光明院本堂にて精進料理の夕食（僧侶の給仕・芸妓の舞）</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食2.jpg" alt="夕食"></div>
+
+            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食3.jpg" alt="夕食"></div>
+            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食4.jpg" alt="夕食"></div>
+            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食5.jpg" alt="夕食"></div>
+            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食6.jpg" alt="夕食"></div>
+
+            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食8.jpg" alt="夕食" style="object-position:center top;"></div>
+            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食9.jpg" alt="夕食"></div>
+            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食10.jpg" alt="夕食" style="object-position:center bottom;"></div>
+            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食11.jpg" alt="夕食"></div>
+            <div class="slide"><img src="photos/光明院本堂にて精進料理の夕食12.jpg" alt="夕食"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
+          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DAY 2 ── -->
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-num">DAY 2</span>
+      <span class="day-route">京都</span>
+    </div>
+    <div class="day-body">
+      <div class="spot">清水寺特別拝観 <span class="tag">非公開エリア・僧侶が案内</span></div>
+      <div class="spot">刺繍工房見学 <span class="tag">京繍伝統工芸士・長艸氏による実演解説</span><span class="tag">エルメスとのコラボレーション実績</span></div>
+      <div class="spot">老舗エリア散策・お買い物</div>
+      <div class="hotel">京都ホテル泊</div>
+    </div>
+    <div class="day-photos">
+      <div class="spot-carousel">
+        <div class="spot-label">清水寺特別拝観</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/清水寺VIP特別見学1.jpg" alt="清水寺VIP" style="object-fit:contain;width:100%;height:auto;aspect-ratio:3/4;background:#f5f2ec;"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
+          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+      <div class="spot-carousel">
+        <div class="spot-label">刺繍工房見学（長艸氏・エルメスコラボ）</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/刺繍工房見学1.jpg" alt="刺繍工房"></div>
+            <div class="slide"><img src="photos/刺繍工房見学2.jpg" alt="刺繍工房"></div>
+            <div class="slide"><img src="photos/刺繍工房見学3.jpg" alt="刺繍工房"></div>
+            <div class="slide"><img src="photos/刺繍工房見学4.jpg" alt="刺繍工房"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
+          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DAY 3 ── -->
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-num">DAY 3</span>
+      <span class="day-route">京都 → 奈良</span>
+    </div>
+    <div class="day-body">
+      <div class="spot">東大寺と正倉院 外部見学 <span class="tag">正倉院事務所元所長同行解説</span></div>
+      <div class="spot">奈良公園 自由散策</div>
+      <div class="spot">西大寺 大碗茶体験 <span class="tag">日本最大の茶碗による茶の湯</span></div>
+      <div class="hotel">京都ホテル泊</div>
+    </div>
+    <div class="day-photos">
+      <div class="spot-carousel">
+        <div class="spot-label">東大寺と正倉院（元所長解説）</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/東大寺と正倉院1.jpg" alt="東大寺と正倉院"></div>
+            <div class="slide"><img src="photos/東大寺と正倉院2.jpg" alt="東大寺と正倉院"></div>
+            <div class="slide"><img src="photos/東大寺と正倉院3.jpg" alt="東大寺と正倉院"></div>
+            <div class="slide"><img src="photos/東大寺と正倉院4.jpg" alt="東大寺と正倉院"></div>
+            <div class="slide"><img src="photos/東大寺と正倉院5.jpg" alt="東大寺と正倉院"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
+          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+      <div class="spot-carousel">
+        <div class="spot-label">西大寺 大碗茶体験</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/大碗茶体験1.jpg" alt="大碗茶体験"></div>
+            <div class="slide"><img src="photos/大碗茶体験2.jpg" alt="大碗茶体験" style="object-position:center bottom;"></div>
+            <div class="slide"><img src="photos/大碗茶体験3.jpg" alt="大碗茶体験"></div>
+            <div class="slide"><img src="photos/大碗茶体験4.jpg" alt="大碗茶体験"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
+          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DAY 4 ── -->
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-num">DAY 4</span>
+      <span class="day-route">奈良 → 滋賀 → 福井</span>
+    </div>
+    <div class="day-body">
+      <div class="spot">琵琶湖テラス</div>
+      <div class="spot">白鬚神社 水中鳥居</div>
+      <div class="spot">高村作 包丁工房見学 <span class="tag">nomaシェフ推奨・「グランメゾン東京」原型</span><span class="tag">名入り包丁を手彫り進呈・欧米ゲスト評価第一位</span></div>
+      <div class="hotel">望洋楼泊</div>
+    </div>
+    <div class="day-photos">
+      <div class="spot-carousel">
+        <div class="spot-label">琵琶湖テラス</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/琵琶湖テラス1.jpg" alt="琵琶湖テラス"></div>
+            <div class="slide"><img src="photos/琵琶湖テラス2.jpg" alt="琵琶湖テラス"></div>
+            <div class="slide"><img src="photos/琵琶湖テラス3.jpg" alt="琵琶湖テラス"></div>
+            <div class="slide"><img src="photos/琵琶湖テラス4.jpg" alt="琵琶湖テラス"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
+          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+      <div class="spot-carousel">
+        <div class="spot-label">白鬚神社 水中鳥居</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/白鬚神社 水中鳥居2.jpg" alt="白鬚神社水中鳥居"></div>
+            <div class="slide"><img src="photos/白鬚神社 水中鳥居_webp.jpg" alt="白鬚神社水中鳥居"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
+          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+      <div class="spot-carousel">
+        <div class="spot-label">高村作 包丁工房</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/高村作工房見学1.JPG" alt="高村作工房"></div>
+            <div class="slide"><img src="photos/高村作工房見学2.jpg" alt="高村作工房"></div>
+            <div class="slide"><img src="photos/高村作工房見学3.JPG" alt="高村作工房"></div>
+            <div class="slide"><img src="photos/高村作工房見学4.JPG" alt="高村作工房" style="object-position:center top;"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
+          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DAY 5 ── -->
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-num">DAY 5</span>
+      <span class="day-route">福井</span>
+    </div>
+    <div class="day-body">
+      <div class="spot">永平寺特別拝観 <span class="tag">禅の本山・非公開エリア含む僧侶案内</span></div>
+      <div class="spot">黒龍酒造 ESHIKOTO <span class="tag">非公開蔵見学</span><span class="tag">鮨さいとうコラボ特別ランチ</span><span class="tag">レア六種試飲・日本酒専門家解説</span></div>
+      <div class="hotel">望洋楼泊</div>
+    </div>
+    <div class="day-photos">
+
+      <div class="spot-carousel">
+        <div class="spot-label">黒龍酒造 ESHIKOTO</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/黒龍酒造7.JPG" alt="黒龍酒造"></div>
+            <div class="slide"><img src="photos/黒龍酒造2.jpg" alt="黒龍酒造"></div>
+            <div class="slide"><img src="photos/黒龍酒造3.jpg" alt="黒龍酒造" style="object-position:center 40%;"></div>
+            <div class="slide"><img src="photos/黒龍酒造4.jpg" alt="黒龍酒造"></div>
+            <div class="slide"><img src="photos/黒龍酒造5.JPG" alt="黒龍酒造"></div>
+            <div class="slide"><img src="photos/黒龍酒造6.jpg" alt="黒龍酒造" style="object-position:center top;"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
+          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DAY 6 ── -->
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-num">DAY 6</span>
+      <span class="day-route">福井 → 金沢 → 東京</span>
+    </div>
+    <div class="day-body">
+      <div class="spot">兼六園</div>
+      <div class="spot">弓道体験</div>
+      <div class="spot">鈴木大拙館</div>
+      <div class="spot">新幹線で東京へ</div>
+      <div class="hotel">東京ホテル宿泊</div>
+    </div>
+    <div class="day-photos">
+      <div class="spot-carousel">
+        <div class="spot-label">弓道体験</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/弓道体験1.png" alt="弓道体験"></div>
+            <div class="slide"><img src="photos/弓道体験2.png" alt="弓道体験"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
+          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+      <div class="spot-carousel">
+        <div class="spot-label">鈴木大拙館</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/鈴木大拙館１.jpg" alt="鈴木大拙館"></div>
+            <div class="slide"><img src="photos/鈴木大拙館2.jpg" alt="鈴木大拙館"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
+          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DAY 7 ── -->
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-num">DAY 7</span>
+      <span class="day-route">東京</span>
+    </div>
+    <div class="day-body">
+      <div class="spot">東京国立博物館特別拝観 <span class="tag">休日特別公開・専門家同行解説</span></div>
+      <div class="spot">着物体験 <span class="tag">ドラマ御用達ブランド</span></div>
+      <div class="spot">浅草にて人力車体験</div>
+      <div class="hotel">東京ホテル宿泊</div>
+    </div>
+    <div class="day-photos">
+      <div class="spot-carousel">
+        <div class="spot-label">東京国立博物館特別拝観</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/東京国立博物館特別拝観1.jpg" alt="東京国立博物館"></div>
+            <div class="slide"><img src="photos/東京国立博物館特別拝観2.jpg" alt="東京国立博物館"></div>
+            <div class="slide"><img src="photos/東京国立博物館特別拝観3.jpg" alt="東京国立博物館"></div>
+            <div class="slide"><img src="photos/東京国立博物館特別拝観4.jpg" alt="東京国立博物館"></div>
+            <div class="slide"><img src="photos/東京国立博物館特別拝観5.jpg" alt="東京国立博物館"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
+          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+      <div class="spot-carousel">
+        <div class="spot-label">着物体験・浅草人力車</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/浅草着物体験1.jpg" alt="浅草着物体験"></div>
+            <div class="slide"><img src="photos/浅草着物体験2.jpg" alt="浅草着物体験"></div>
+            <div class="slide"><img src="photos/浅草着物体験3.jpg" alt="浅草着物体験"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
+          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── DAY 8 ── -->
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-num">DAY 8</span>
+      <span class="day-route">東京</span>
+    </div>
+    <div class="day-body">
+      <div class="spot">六本木 瓷器倶楽部 <span class="tag">前田氏直々の指導で自分だけの茶碗制作</span></div>
+      <div class="spot">築地にて寿司作り体験</div>
+      <div class="spot">ヴィンテージ専門バイヤー同行ショッピング</div>
+      <div class="hotel">東京ホテル宿泊</div>
+    </div>
+    <div class="day-photos">
+      <div class="spot-carousel">
+        <div class="spot-label">六本木 瓷器倶楽部</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/六本木瓷器倶楽部1.jpg" alt="六本木 瓷器倶楽部" style="object-position:center top;"></div>
+            <div class="slide"><img src="photos/六本木瓷器倶楽部2.jpg" alt="六本木 瓷器倶楽部"></div>
+            <div class="slide"><img src="photos/六本木瓷器倶楽部4.jpg" alt="六本木 瓷器倶楽部"></div>
+            <div class="slide"><img src="photos/六本木瓷器倶楽部5.jpg" alt="六本木 瓷器倶楽部"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
+          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+      <div class="spot-carousel">
+        <div class="spot-label">築地にて寿司作り体験</div>
+        <div class="carousel" data-carousel>
+          <div class="slides">
+            <div class="slide"><img src="photos/築地にて寿司作り体験1.JPG" alt="玉すし本店 寿司作り体験"></div>
+            <div class="slide"><img src="photos/築地にて寿司作り体験2.JPG" alt="玉すし本店 寿司作り体験"></div>
+            <div class="slide"><img src="photos/築地にて寿司作り体験3.JPG" alt="玉すし本店 寿司作り体験"></div>
+            <div class="slide"><img src="photos/築地にて寿司作り体験4.JPG" alt="玉すし本店 寿司作り体験"></div>
+          </div>
+          <button class="arrow arrow--prev" aria-label="前へ">&lsaquo;</button>
+          <button class="arrow arrow--next" aria-label="次へ">&rsaquo;</button>
+          <div class="dots"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── DAY 9 ── -->
+  <div class="day-card day-minimal">
+    <div class="day-header">
+      <span class="day-num">DAY 9</span>
+      <span class="day-route">東京 発</span>
+    </div>
+    <div class="day-body">
+      <div class="spot">羽田空港 VIP出国サービス <span class="tag">ファストトラック出国・専任スタッフ対応</span></div>
+      <p class="note">チェックインから出国ゲートまで、専任スタッフが全行程をエスコート。</p>
+    </div>
+  </div>
+
+</div>
+<!-- /Section 9 -->
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer class="footer">
+  <div class="ornament">◇</div>
+  <div class="contact">info@kinoko-group.co.jp</div>
+  <div class="web">kinoko-group.co.jp</div>
+  <div class="social-icons">
+    <div class="social-icon">IG</div>
+    <div class="social-icon">LINE</div>
+  </div>
+  <div style="margin-top: 32px; font-size: 11px; letter-spacing: 3px; color: #c0b0a0;">
+    木の子交通株式会社 &nbsp;×&nbsp; Kinoko Club Concierge
+  </div>
+</footer>
+
+</div><!-- /page -->
+
+<script>
+(function() {
+  document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
+    var slidesEl = carousel.querySelector('.slides');
+    var slides = slidesEl.querySelectorAll('.slide');
+    var dotsEl = carousel.querySelector('.dots');
+    var counterEl = carousel.querySelector('.counter');
+    var prevBtn = carousel.querySelector('.arrow--prev');
+    var nextBtn = carousel.querySelector('.arrow--next');
+    var current = 0;
+    var total = slides.length;
+
+    if (total <= 1) {
+      if (prevBtn) prevBtn.style.display = 'none';
+      if (nextBtn) nextBtn.style.display = 'none';
+    }
+
+    // Build dots
+    for (var i = 0; i < total; i++) {
+      (function(idx) {
+        var dot = document.createElement('span');
+        dot.className = 'dot' + (idx === 0 ? ' active' : '');
+        dot.addEventListener('click', function() { go(idx); });
+        dotsEl.appendChild(dot);
+      })(i);
+    }
+
+    function updateUI() {
+      slidesEl.style.transform = 'translateX(-' + (current * 100) + '%)';
+      if (counterEl) counterEl.textContent = (current + 1) + ' / ' + total;
+      var dots = dotsEl.querySelectorAll('.dot');
+      dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
+    }
+
+    function go(idx) {
+      current = ((idx % total) + total) % total;
+      updateUI();
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function() { go(current - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function() { go(current + 1); });
+
+    updateUI();
+  });
+})();
+</script>
+
+
+
+<!-- ════════════════ CLOSING ════════════════ -->
+<div style="text-align:center;padding:80px 40px;background:linear-gradient(135deg,#1a1a1a,#2d2d2d);color:#fff;margin-top:60px;">
+  <div style="font-size:2.4rem;font-weight:700;letter-spacing:0.05em;margin-bottom:16px;">ハイヤーのことなら、木の子交通へ。</div>
+  <div style="font-size:1.4rem;opacity:0.9;font-style:italic;margin-bottom:24px;">移動という時間に、上質なゆとりを</div>
+  <div style="font-size:1.2rem;opacity:0.85;line-height:1.8;max-width:600px;margin:0 auto;">
+    空港送迎から、特別な旅の一日まで。<br>
+    お客様の大切なゲストを、私たちに預けてください。<br>
+    全力でお届けします。
+  </div>
+  <div style="margin-top:40px;">
+    <a href="https://www.instagram.com/kinokoclubconcierge" target="_blank" style="display:inline-block;">
+      <img src="photos/icon-instagram.png" alt="Instagram" style="width:40px;height:40px;opacity:0.9;">
+    </a>
+  </div>
+  <div style="margin-top:20px;">
+    <a href="https://kinoko-group.co.jp" target="_blank" style="color:rgba(255,255,255,0.7);text-decoration:none;font-size:1rem;">https://kinoko-group.co.jp</a>
+  </div>
+  <div style="margin-top:16px;font-size:1.1rem;opacity:0.7;">木の子交通株式会社 ｜ Kinoko Club Concierge</div>
+</div>
+
+
 </body>
 </html>
